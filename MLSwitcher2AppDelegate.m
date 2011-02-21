@@ -93,7 +93,7 @@ CGEventRef eventTapCallback(
                    statusItemWithLength:NSVariableStatusItemLength] retain];
     [statusItem setMenu:menu];
     [statusItem setHighlightMode:YES];
-    [statusItem setToolTip:@"MLSwitcher"];
+    [statusItem setToolTip:@"MLSwitcher2"];
     [statusItem setImage:[NSImage imageNamed:@"mlswitcher"]];
     
     [menu release];

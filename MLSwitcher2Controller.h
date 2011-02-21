@@ -10,9 +10,12 @@
 #include <Carbon/Carbon.h>
 #include <ShortcutRecorder/ShortcutRecorder.h>
 
-@interface MLSwitcher2Controller : NSObject {
+@interface MLSwitcher2Controller : NSObject<NSToolbarDelegate> {
     IBOutlet NSView *sourcesView;
+    IBOutlet NSView *shortcutsView;
+    IBOutlet NSView *prefsView;
     IBOutlet NSWindow *window;
+    IBOutlet NSTabView *tabView;
     NSMutableDictionary *modifiersSettings;
 }
 
@@ -28,4 +31,6 @@
 - (void)shortcutRecorder:(SRRecorderControl *)aRecorder 
        keyComboDidChange:(KeyCombo)newKeyCombo;
 
+- (void) prefs:(id)sender;
+- (void) shortcuts:(id)sender;
 @end

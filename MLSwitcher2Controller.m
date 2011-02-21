@@ -10,6 +10,10 @@
 #import "LayoutManager.h"
 #import "Layout.h"
 
+
+static NSString *kPrefsToolbarItemIdentifier = @"PrefsToolbarItem";
+static NSString *kShortcutsToolbarItemIdentifier = @"ShortcutsToolbarItem";
+
 int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask, 
     NSCommandKeyMask, NSShiftKeyMask };
 
@@ -55,20 +59,7 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
             combo.code = comboInt & 0x0000ffff;
             [recorder setKeyCombo:combo];
         }
-#if 0
-        NSMutableArray *checkBoxes = [[NSMutableArray alloc] init];
-        for (int j = 0; j < 4; j++) {
-            NSButton *checkbox = [[NSButton alloc] 
-                               initWithFrame:NSMakeRect(originX + 221 + 32*j, y - 3, 30, 20)];
-            [checkbox setButtonType: NSSwitchButton];
-            [checkbox setTitle:@""];
-            [checkbox setTarget:self];
-            [checkbox setAction:@selector(updateModifiers:)];
-            if (modifiers & modifiersMasks[j])
-                [checkbox setState:NSOnState];
-            [checkBoxes addObject:checkbox];
-        }
-#endif
+
         [sourcesView addSubview:view];
         [sourcesView addSubview:text];
         [sourcesView addSubview:recorder];
@@ -77,16 +68,31 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
         [recorder release];
         
         [modifiersSettings setObject:recorder forKey:l.sourceId];
-#if 0
-        for (NSButton *b in checkBoxes) {
-            [sourcesView addSubview:b];
-            [b release];
-        }
-
-        [modifiersSettings setObject:checkBoxes forKey:l.sourceId];
-#endif
         i++;
     }
+
+    // create the toolbar object
+    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:@"MySampleToolbar"];
+    
+    // set initial toolbar properties
+    [toolbar setAllowsUserCustomization:YES];
+    [toolbar setAutosavesConfiguration:YES];
+    [toolbar setDisplayMode:NSToolbarDisplayModeIconAndLabel];
+    
+    // set our controller as the toolbar delegate
+    [toolbar setDelegate:self];
+    [toolbar setSelectedItemIdentifier:kShortcutsToolbarItemIdentifier];
+    
+    // attach the toolbar to our window
+    [window setToolbar:toolbar];
+    
+    // clean up
+    [toolbar release];
+    
+    [[tabView tabViewItemAtIndex:0] setView:prefsView];
+    [[tabView tabViewItemAtIndex:1] setView:shortcutsView];
+
+    [tabView selectTabViewItemAtIndex:1];
 }
 
 - (void)updateModifiers:(id)sender
@@ -136,6 +142,68 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
     
     [defaults synchronize];
     [[LayoutManager sharedInstance] reloadLayouts];
+}
+
+// toolbar  delegate stuff
+
+- (NSArray *) toolbarAllowedItemIdentifiers: (NSToolbar *) toolbar {
+    return [NSArray arrayWithObjects:kPrefsToolbarItemIdentifier, 
+            kShortcutsToolbarItemIdentifier,
+            NSToolbarFlexibleSpaceItemIdentifier, 
+            NSToolbarSpaceItemIdentifier, 
+            NSToolbarSeparatorItemIdentifier, nil];
+}
+
+- (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar *)toolbar 
+{
+    return [NSArray arrayWithObjects:kPrefsToolbarItemIdentifier,
+            kShortcutsToolbarItemIdentifier, 
+            NSToolbarFlexibleSpaceItemIdentifier, nil];
+}
+
+- (NSArray *) toolbarSelectableItemIdentifiers: (NSToolbar *)toolbar 
+{
+    return [NSArray arrayWithObjects:kPrefsToolbarItemIdentifier,
+            kShortcutsToolbarItemIdentifier, nil];
+}
+
+
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
+     itemForItemIdentifier:(NSString *)itemIdentifier
+ willBeInsertedIntoToolbar:(BOOL)flag
+{
+    NSToolbarItem *toolbarItem = nil;
+    
+    if ([itemIdentifier isEqualTo:kPrefsToolbarItemIdentifier]) {
+        toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        [toolbarItem setLabel:@"Preferences"];
+        [toolbarItem setPaletteLabel:[toolbarItem label]];
+        [toolbarItem setToolTip:@"General preferences"];
+        [toolbarItem setImage:[NSImage imageNamed: @"NSPreferencesGeneral"]];
+        [toolbarItem setTarget:self];
+        [toolbarItem setAction:@selector(prefs:)];
+
+    } else if ([itemIdentifier isEqualTo:kShortcutsToolbarItemIdentifier]) {
+        toolbarItem = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+        [toolbarItem setLabel:@"Shortcuts"];
+        [toolbarItem setPaletteLabel:[toolbarItem label]];
+        [toolbarItem setToolTip:@"Shortcuts"];
+        [toolbarItem setImage:[NSImage imageNamed: @"keyboard_layout"]];
+        [toolbarItem setTarget:self];
+        [toolbarItem setAction:@selector(shortcuts:)];
+    }
+    
+    return [toolbarItem autorelease];
+}
+
+- (void) prefs:(id)sender
+{
+    [tabView selectTabViewItemAtIndex:0];
+}
+
+- (void) shortcuts:(id)sender
+{
+    [tabView selectTabViewItemAtIndex:1];
 }
 
 @end

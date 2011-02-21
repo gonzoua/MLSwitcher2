@@ -18,6 +18,7 @@
 		9F3E1B0113120B57000E1F17 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AFB13120B57000E1F17 /* SRRecorderControl.m */; };
 		9F3E1B0213120B57000E1F17 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AFD13120B57000E1F17 /* SRValidator.m */; };
 		9F3E1B0713120C48000E1F17 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */; };
+		9F3E1B6C131225E2000E1F17 /* keyboard_layout.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */; };
 		9F8186501310D6EF00DAA1DF /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81864D1310D6EF00DAA1DF /* Layout.m */; };
 		9F8186511310D6EF00DAA1DF /* LayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81864F1310D6EF00DAA1DF /* LayoutManager.m */; };
 		9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F81865E1310D7C900DAA1DF /* Carbon.framework */; };
@@ -51,6 +52,7 @@
 		9F3E1AFD13120B57000E1F17 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = ShortcutRecoder/SRValidator.m; sourceTree = "<group>"; };
 		9F3E1B0513120C48000E1F17 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
 		9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
+		9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_layout.png; sourceTree = "<group>"; };
 		9F81864C1310D6EF00DAA1DF /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
 		9F81864D1310D6EF00DAA1DF /* Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
 		9F81864E1310D6EF00DAA1DF /* LayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */,
 				9F8186711311C7B200DAA1DF /* MLSwitcher2.icns */,
 				9F8186671310D7F200DAA1DF /* mlswitcher.png */,
 				8D1107310486CEB800E47090 /* MLSwitcher2-Info.plist */,
@@ -233,6 +236,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				9F8186681310D7F200DAA1DF /* mlswitcher.png in Resources */,
 				9F8186721311C7B200DAA1DF /* MLSwitcher2.icns in Resources */,
+				9F3E1B6C131225E2000E1F17 /* keyboard_layout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
