@@ -10,7 +10,7 @@
 
 @interface MLSwitcher2AppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
-    
+    NSConnection *serverConnection;
     uint32_t currentFlags;
 }
 

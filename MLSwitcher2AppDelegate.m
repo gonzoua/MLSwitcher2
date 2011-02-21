@@ -63,6 +63,18 @@ CGEventRef eventTapCallback(
     CFRunLoopAddSource( runLoop, eventSrc, kCFRunLoopDefaultMode );
 #endif
     
+    NSProxy *proxy = [NSConnection rootProxyForConnectionWithRegisteredName:@"com.bluezbox.mlswitcher2.notify" host:nil];
+    
+    if (proxy == nil) {
+        serverConnection = [[NSConnection alloc] init];
+        [serverConnection setRootObject:self];
+        [serverConnection registerName:@"com.bluezbox.mlswitcher2.notify"];
+    }
+    else {
+        [proxy showPrefs];
+        exit(0);
+    }
+    
     NSRect frame = [window frame];
     float delta = [[[LayoutManager sharedInstance] layouts] count] * 24 - 20;
     
@@ -93,6 +105,13 @@ CGEventRef eventTapCallback(
         [window makeKeyAndOrderFront:self];
     }    
 }
+
+- (id)showPrefs
+{
+    [self actionPreferences:nil];
+    return nil;
+}
+
 
 // com.apple.keylayout.US
 
