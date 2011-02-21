@@ -11,14 +11,12 @@
 @interface MLSwitcher2AppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
     
-    uint32_t prevModifiers;
-    uint32_t possibleModifiers;
+    uint32_t currentFlags;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 
 - (void)keyEvent:(CGEventRef)event;
-- (void)mouseEvent:(CGEventRef)event;
 - (void)flagsChanged:(CGEventRef)event;
 
 - (NSMenu *) createMenu;

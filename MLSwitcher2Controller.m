@@ -32,8 +32,10 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
     modifiersSettings = [[NSMutableDictionary alloc] init];
     for (Layout *l in layouts) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        int modifiers = [defaults integerForKey:l.sourceId];
-        int y = originY + i*height;
+        int comboInt = [defaults integerForKey:l.sourceId];
+        KeyCombo combo;
+        
+        int y = originY + (layoutsTotal - i - 1)*height;
 
         NSImageView *view = 
             [[NSImageView alloc] initWithFrame:NSMakeRect( originX, y, 16, 16)];
@@ -48,6 +50,11 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
         
         SRRecorderControl *recorder = [[SRRecorderControl alloc] initWithFrame:NSMakeRect(originX + 211 , y - 2, 100, 20)];
         [recorder setDelegate:self];
+        if (comboInt) {
+            combo.flags = comboInt & 0xffff0000;
+            combo.code = comboInt & 0x0000ffff;
+            [recorder setKeyCombo:combo];
+        }
 #if 0
         NSMutableArray *checkBoxes = [[NSMutableArray alloc] init];
         for (int j = 0; j < 4; j++) {
@@ -68,6 +75,8 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
         [view release];
         [text release];
         [recorder release];
+        
+        [modifiersSettings setObject:recorder forKey:l.sourceId];
 #if 0
         for (NSButton *b in checkBoxes) {
             [sourcesView addSubview:b];
@@ -114,8 +123,19 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
 - (void)shortcutRecorder:(SRRecorderControl *)aRecorder 
        keyComboDidChange:(KeyCombo)newKeyCombo
 {
-    NSLog(@"sr[2] = %@", aRecorder);
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    for (NSString *sourceId in [modifiersSettings allKeys]) {
+        
+        SRRecorderControl *recorder = [modifiersSettings objectForKey:sourceId];
+        if (recorder != aRecorder)
+            continue;
+        NSInteger combo = newKeyCombo.flags | newKeyCombo.code;
+        [defaults setInteger:combo forKey:sourceId];
+    }
+    
+    [defaults synchronize];
+    [[LayoutManager sharedInstance] reloadLayouts];
 }
 
 @end

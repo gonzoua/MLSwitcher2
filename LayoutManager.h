@@ -7,11 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "DDHotKeyCenter.h"
 
+typedef struct {
+    int combo;
+    NSString *layout;
+} LayoutConfig;
 
 @interface LayoutManager : NSObject {
     NSMutableArray *_layouts;
-    NSMutableDictionary *_modifiers;
+    int _layoutsCount; // for performance
+    DDHotKeyCenter *_hotKeyCenter;
+    LayoutConfig *_combos;
 }
 
 - (id)init;
@@ -19,7 +26,6 @@
 - (void)reloadLayouts;
 - (NSArray*)layouts;
 - (void)setLayout:(NSString*)layout;
-- (BOOL)validCombination:(int)modifiers;
-- (void)setLayoutForCombination:(int)modifiers;
+- (void)setLayoutForCombination:(int)combo;
 
 @end

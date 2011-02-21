@@ -61,7 +61,8 @@ static LayoutManager *sharedInstance = nil;
     self = [super init];
     if (self) {
         _layouts = [[NSMutableArray alloc] init];
-        _modifiers = [[NSMutableDictionary alloc] init];
+        _combos = NULL;
+        _hotKeyCenter = [[DDHotKeyCenter alloc] init];
         [self reloadLayouts];
     }
     return self;
@@ -69,8 +70,11 @@ static LayoutManager *sharedInstance = nil;
 
 - (void)reloadLayouts
 {
+    [_hotKeyCenter unregisterHotKeysWithTarget:self];
     [_layouts removeAllObjects];
-    [_modifiers removeAllObjects];
+    if (_combos)
+        free(_combos);
+    _layoutsCount = 0;
     
     // get number of layouts
     CFStringRef keys[] = { kTISPropertyInputSourceCategory };
@@ -86,6 +90,7 @@ static LayoutManager *sharedInstance = nil;
     
     TISInputSourceRef inputKeyboardLayout;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _combos = (void*)malloc(sizeof(LayoutConfig)*n);
     for (CFIndex i = 0; i < n; ++i) {
         inputKeyboardLayout = (TISInputSourceRef) CFArrayGetValueAtIndex(kbds, i);
         NSString *sId = TISGetInputSourceProperty( inputKeyboardLayout, kTISPropertyInputSourceID);
@@ -100,11 +105,20 @@ static LayoutManager *sharedInstance = nil;
         l.sourceId = sId;
         l.sourceRef = inputKeyboardLayout;
         [_layouts addObject:l];
-        int modifiers = [defaults integerForKey:sId];
-        if (modifiers) 
-            [_modifiers setObject:sId forKey:[NSNumber numberWithInt:modifiers]];
-            
+        _combos[i].layout = sId;
+        _combos[i].combo = [defaults integerForKey:sId]; 
+        if (_combos[i].combo) {
+            unsigned short code = _combos[i].combo & 0xffff;
+            NSUInteger modifiers = _combos[i].combo & 0xffff0000;
+            [_hotKeyCenter registerHotKeyWithKeyCode:code 
+                                   modifierFlags:modifiers 
+                                          target:self 
+                                          action:@selector(hotkeyWithEvent:object:) 
+                                          object:sId];
+        }
     }
+    
+    _layoutsCount = n;
 }
 
 - (NSArray*)layouts
@@ -120,26 +134,19 @@ static LayoutManager *sharedInstance = nil;
     }
 }
 
-- (BOOL)validCombination:(int)modifiers
+- (void)setLayoutForCombination:(int)combo
 {
-    for (NSNumber *n in [_modifiers allKeys]) {
-        if ([n intValue] == modifiers)
-            return YES;
+    for (int i = 0; i < _layoutsCount; i++) {
+        if (_combos[i].combo != combo)
+            continue;
+        
+        [self setLayout:_combos[i].layout];
     }
-    
-    return NO;
 }
 
-- (void)setLayoutForCombination:(int)modifiers
-{
-    NSLog(@"setLayoutForCombination %08x", modifiers);
-    NSNumber *n = [[NSNumber alloc] initWithInt:modifiers];
-    NSString *sourceId = [_modifiers objectForKey:n];
-    if (sourceId) {
-        [self setLayout:sourceId];
-    }
-    [n release];
+- (void) hotkeyWithEvent:(NSEvent *)hkEvent object:(id)anObject {
+    NSLog(@"%@", hkEvent, anObject);
+    [self setLayout:anObject];
 }
-
 
 @end

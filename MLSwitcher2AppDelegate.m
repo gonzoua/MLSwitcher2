@@ -24,11 +24,7 @@ CGEventRef eventTapCallback(
         case kCGEventFlagsChanged:
             [keyTap flagsChanged:event];
             break;
-        case kCGEventRightMouseUp:
-        case kCGEventRightMouseDown: 
-        case kCGEventLeftMouseUp:
-        case kCGEventLeftMouseDown:
-            [keyTap mouseEvent:event];
+        default:
             break;
 	}
 	return NULL;
@@ -39,10 +35,9 @@ CGEventRef eventTapCallback(
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
+#if 0    
     CFMachPortRef tap;
-    prevModifiers = 0;
-    possibleModifiers = 0;
+    currentFlags = 0;
     tap = CGEventTapCreate(
                            kCGSessionEventTap,
                            kCGHeadInsertEventTap,
@@ -55,9 +50,7 @@ CGEventRef eventTapCallback(
                            CGEventMaskBit(kCGEventLeftMouseDown),
                            eventTapCallback,
                            self
-                           );
-    NSLog(@"Could not create event tap" );
-    
+                           );    
     
     CFRunLoopSourceRef eventSrc = CFMachPortCreateRunLoopSource(NULL, tap, 0);
     if (eventSrc == NULL)
@@ -68,6 +61,7 @@ CGEventRef eventTapCallback(
         NSLog(@"There is no current run loop.");
     
     CFRunLoopAddSource( runLoop, eventSrc, kCFRunLoopDefaultMode );
+#endif
     
     NSRect frame = [window frame];
     float delta = [[[LayoutManager sharedInstance] layouts] count] * 24 - 20;
@@ -100,58 +94,38 @@ CGEventRef eventTapCallback(
     }    
 }
 
-
 // com.apple.keylayout.US
 
 - (void)keyEvent:(CGEventRef)event
 {
-    possibleModifiers = 0;
-}
-
-- (void)mouseEvent:(CGEventRef)event
-{
-    possibleModifiers = 0;
+    // check and handle
+    if (currentFlags) {
+        int code = CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
+        int combo = currentFlags | code;
+        [[LayoutManager sharedInstance] setLayoutForCombination:combo];
+    }
 }
 
 - (void)flagsChanged:(CGEventRef)event
 {
-    uint32_t modifiers = 0;
+    currentFlags = 0;
 	CGEventFlags f = CGEventGetFlags( event );
     
 	if (f & kCGEventFlagMaskShift)
-		modifiers |= NSShiftKeyMask;
+		currentFlags |= NSShiftKeyMask;
 	
 	if (f & kCGEventFlagMaskCommand)
-		modifiers |= NSCommandKeyMask;
+		currentFlags |= NSCommandKeyMask;
     
 	if (f & kCGEventFlagMaskControl)
-		modifiers |= NSControlKeyMask;
+		currentFlags |= NSControlKeyMask;
 	
 	if (f & kCGEventFlagMaskAlternate)
-		modifiers |= NSAlternateKeyMask;
+		currentFlags |= NSAlternateKeyMask;
     
     if (f & kCGEventFlagMaskAlphaShift) {
-        modifiers |= NSAlphaShiftKeyMask;
+        currentFlags |= NSAlphaShiftKeyMask;
     }
-    
-    if ((modifiers < prevModifiers) && possibleModifiers) {
-        [[LayoutManager sharedInstance] setLayoutForCombination:possibleModifiers];
-        possibleModifiers = 0;
-    }
-    
-    // if it was addition
-    if (prevModifiers < modifiers) {
-        if ([[LayoutManager sharedInstance] validCombination:modifiers])
-            possibleModifiers = modifiers;
-    }
-    
-    if (possibleModifiers) {
-        // something other was pressed
-        if ((possibleModifiers & modifiers) != modifiers)
-            possibleModifiers = 0;
-    }
-    
-    prevModifiers = modifiers;
 }
 
 - (NSMenu *) createMenu {
