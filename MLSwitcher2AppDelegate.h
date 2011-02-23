@@ -7,21 +7,23 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MLSwitcher2Controller.h"
 
 @interface MLSwitcher2AppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
     NSConnection *serverConnection;
     uint32_t currentFlags;
+    IBOutlet MLSwitcher2Controller *controller;
+    NSStatusItem *statusItem; 
 }
-
-@property (assign) IBOutlet NSWindow *window;
-
-- (void)keyEvent:(CGEventRef)event;
-- (void)flagsChanged:(CGEventRef)event;
 
 - (NSMenu *) createMenu;
 - (void) actionQuit: (id)sender;
 - (void) actionAbout: (id)sender;
 - (void) actionPreferences: (id)sender;
+- (void) createStatusItem;
+- (void) hideStatusItem;
+
+- (IBAction) statusItemButtonClicked:(id)sender;
+- (IBAction) startAtLoginButtonClicked:(id)sender;
 
 @end

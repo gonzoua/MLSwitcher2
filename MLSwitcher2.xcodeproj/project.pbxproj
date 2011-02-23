@@ -25,6 +25,8 @@
 		9F8186681310D7F200DAA1DF /* mlswitcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8186671310D7F200DAA1DF /* mlswitcher.png */; };
 		9F8186721311C7B200DAA1DF /* MLSwitcher2.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9F8186711311C7B200DAA1DF /* MLSwitcher2.icns */; };
 		9F81867D1311CF7E00DAA1DF /* MLSwitcher2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81867C1311CF7E00DAA1DF /* MLSwitcher2Controller.m */; };
+		9F8F03FB13138EBB00C21E17 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8F03FA13138EBB00C21E17 /* LaunchAtLoginController.m */; };
+		9FB8D7301313944600217DC6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9FB8D72F1313944600217DC6 /* Credits.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,9 @@
 		9F8186711311C7B200DAA1DF /* MLSwitcher2.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MLSwitcher2.icns; sourceTree = "<group>"; };
 		9F81867B1311CF7E00DAA1DF /* MLSwitcher2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSwitcher2Controller.h; sourceTree = "<group>"; };
 		9F81867C1311CF7E00DAA1DF /* MLSwitcher2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSwitcher2Controller.m; sourceTree = "<group>"; };
+		9F8F03F913138EBB00C21E17 /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
+		9F8F03FA13138EBB00C21E17 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
+		9FB8D72F1313944600217DC6 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +85,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9F8F03F913138EBB00C21E17 /* LaunchAtLoginController.h */,
+				9F8F03FA13138EBB00C21E17 /* LaunchAtLoginController.m */,
 				9F3E1B0513120C48000E1F17 /* DDHotKeyCenter.h */,
 				9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */,
 				9F81867B1311CF7E00DAA1DF /* MLSwitcher2Controller.h */,
@@ -146,6 +153,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9FB8D72F1313944600217DC6 /* Credits.rtf */,
 				9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */,
 				9F8186711311C7B200DAA1DF /* MLSwitcher2.icns */,
 				9F8186671310D7F200DAA1DF /* mlswitcher.png */,
@@ -237,6 +245,7 @@
 				9F8186681310D7F200DAA1DF /* mlswitcher.png in Resources */,
 				9F8186721311C7B200DAA1DF /* MLSwitcher2.icns in Resources */,
 				9F3E1B6C131225E2000E1F17 /* keyboard_layout.png in Resources */,
+				9FB8D7301313944600217DC6 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +267,7 @@
 				9F3E1B0113120B57000E1F17 /* SRRecorderControl.m in Sources */,
 				9F3E1B0213120B57000E1F17 /* SRValidator.m in Sources */,
 				9F3E1B0713120C48000E1F17 /* DDHotKeyCenter.m in Sources */,
+				9F8F03FB13138EBB00C21E17 /* LaunchAtLoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

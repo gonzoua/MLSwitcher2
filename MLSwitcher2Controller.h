@@ -10,27 +10,18 @@
 #include <Carbon/Carbon.h>
 #include <ShortcutRecorder/ShortcutRecorder.h>
 
-@interface MLSwitcher2Controller : NSObject<NSToolbarDelegate> {
+@interface MLSwitcher2Controller : NSObject {
+    int sourcePlaceholders;
     IBOutlet NSView *sourcesView;
     IBOutlet NSView *shortcutsView;
     IBOutlet NSView *prefsView;
     IBOutlet NSWindow *window;
-    IBOutlet NSTabView *tabView;
     NSMutableDictionary *modifiersSettings;
+    NSMutableArray *allSubviews;
+    NSArray *currentLayouts;
 }
 
-- (void)updateModifiers:(id)sender;
+- (void)refreshSources;
+- (void)preferences;
 
-
-// ShortcutRecorder delegate methods
-- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder 
-               isKeyCode:(signed short)keyCode 
-           andFlagsTaken:(unsigned int)flags 
-                  reason:(NSString **)aReason;
-
-- (void)shortcutRecorder:(SRRecorderControl *)aRecorder 
-       keyComboDidChange:(KeyCombo)newKeyCombo;
-
-- (void) prefs:(id)sender;
-- (void) shortcuts:(id)sender;
 @end
