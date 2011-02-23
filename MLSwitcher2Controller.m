@@ -19,7 +19,15 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
 {   
     sourcePlaceholders = 1;
     currentLayouts = nil;
-    [self refreshSources];
+    modifiersSettings = [[NSMutableDictionary alloc] init];
+    allSubviews = [[NSMutableArray alloc] init];
+
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self 
+        selector:@selector(escapeKeysPressed) 
+            name:@"notifyEscapeKeyPressedFromControllerWindow" 
+            object:nil];
+
 }
 
 - (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder 
@@ -51,6 +59,38 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
 - (void) refreshSources
 {
     NSArray *layouts = [[LayoutManager sharedInstance] layouts];
+    BOOL changed = NO;
+    
+    // check if layouts has changed
+    if ([layouts count] == [modifiersSettings count]) {
+        for (NSString *i in [modifiersSettings allKeys]) {
+            BOOL haveIt = NO;
+            for (Layout *l in layouts) {
+                if ([l.sourceId isEqualToString:i]) {
+                    haveIt = YES;
+                    break;
+                }
+            }
+            if (!haveIt) {
+                changed = YES;
+                break;
+            }
+        }
+    }
+    else {
+        changed = YES;
+    }
+
+    
+    if (!changed) 
+        return;
+
+    [modifiersSettings removeAllObjects];
+    for (NSView *v in allSubviews) {
+        [v removeFromSuperview];
+    }
+    
+    [allSubviews removeAllObjects];
     
     float originX;
     float originY;
@@ -58,6 +98,7 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
     
     int layoutsTotal = [layouts count];
     float delta = (layoutsTotal - sourcePlaceholders) * height;
+    sourcePlaceholders = layoutsTotal;
 
     if (delta) {
         NSRect frame = [window frame];
@@ -75,7 +116,6 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
     float width = sourcesView.frame.size.width;
     int i = 0;
     
-    modifiersSettings = [[NSMutableDictionary alloc] init];
     for (Layout *l in [layouts reverseObjectEnumerator]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         int comboInt = [defaults integerForKey:l.sourceId];
@@ -109,6 +149,10 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
         [text release];
         [recorder release];
         
+        [allSubviews addObject:view];
+        [allSubviews addObject:text];
+        [allSubviews addObject:recorder];
+        
         [modifiersSettings setObject:recorder forKey:l.sourceId];
         i++;
     }
@@ -118,8 +162,15 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
 {
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     if (![window isVisible]) {
+        [[LayoutManager sharedInstance] reloadLayouts];
+        [self refreshSources];
         [window makeKeyAndOrderFront:self];
     }
+}
+
+- (void) escapeKeysPressed
+{
+    [window close];
 }
 
 @end

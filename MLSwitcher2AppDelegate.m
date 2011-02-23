@@ -12,9 +12,7 @@
 @implementation MLSwitcher2AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    NSLog(@"---> did finish launch");
     NSProxy *proxy = [NSConnection rootProxyForConnectionWithRegisteredName:@"com.bluezbox.mlswitcher2.notify" host:nil];
-    NSLog(@">> %@", proxy);
     if (proxy == nil) {
         serverConnection = [[NSConnection alloc] init];
         [serverConnection setRootObject:self];
@@ -30,7 +28,6 @@
     
     // show settings window if it's the first time
     if (firstTime) {
-        NSLog(@" first time!");
         [defaults setBool:YES forKey:@"NotFirstTime"];
         [defaults setBool:YES forKey:@"ShowStatusItem"];
         [defaults setBool:NO forKey:@"StartAtLogin"];
@@ -41,16 +38,12 @@
         [self createStatusItem];
     
     if (firstTime || [defaults boolForKey:@"ShowPrefsOnLaunch"]) {
-        NSLog(@"from stratup");
-
         [controller preferences];
     }
 }
 
 - (id)showPrefs
 {
-    NSLog(@"showPrefs");
-
     [self actionPreferences:nil];
     return nil;
 }
@@ -121,8 +114,6 @@
 
 - (void) actionPreferences: (id)sender
 {  
-    NSLog(@"actionPreferences");
-
     [controller preferences];
 }
 
@@ -147,7 +138,6 @@
                      hasVisibleWindows:(BOOL)flag 
 {
     if (!flag) {
-        NSLog(@"applicationShouldHandleReopen");
         [controller preferences];
     }
     

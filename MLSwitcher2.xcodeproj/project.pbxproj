@@ -27,6 +27,7 @@
 		9F81867D1311CF7E00DAA1DF /* MLSwitcher2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81867C1311CF7E00DAA1DF /* MLSwitcher2Controller.m */; };
 		9F8F03FB13138EBB00C21E17 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8F03FA13138EBB00C21E17 /* LaunchAtLoginController.m */; };
 		9FB8D7301313944600217DC6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9FB8D72F1313944600217DC6 /* Credits.rtf */; };
+		9FB8D7381314B46200217DC6 /* PrefsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB8D7371314B46200217DC6 /* PrefsWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		9F8F03F913138EBB00C21E17 /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
 		9F8F03FA13138EBB00C21E17 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
 		9FB8D72F1313944600217DC6 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		9FB8D7361314B46200217DC6 /* PrefsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsWindow.h; sourceTree = "<group>"; };
+		9FB8D7371314B46200217DC6 /* PrefsWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				9F81864F1310D6EF00DAA1DF /* LayoutManager.m */,
 				256AC3D80F4B6AC300CF3369 /* MLSwitcher2AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* MLSwitcher2AppDelegate.m */,
+				9FB8D7361314B46200217DC6 /* PrefsWindow.h */,
+				9FB8D7371314B46200217DC6 /* PrefsWindow.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				9F3E1B0213120B57000E1F17 /* SRValidator.m in Sources */,
 				9F3E1B0713120C48000E1F17 /* DDHotKeyCenter.m in Sources */,
 				9F8F03FB13138EBB00C21E17 /* LaunchAtLoginController.m in Sources */,
+				9FB8D7381314B46200217DC6 /* PrefsWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

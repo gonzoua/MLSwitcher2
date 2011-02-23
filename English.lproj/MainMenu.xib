@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="371"/>
 			<integer value="29"/>
-			<integer value="577"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1315,8 +1315,8 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{335, 527}, {397, 223}}</string>
 				<int key="NSWTFlags">1954021376</int>
-				<string key="NSWindowTitle">MLSwitcher2</string>
-				<string key="NSWindowClass">NSWindow</string>
+				<string key="NSWindowTitle">MLSwitcher</string>
+				<string key="NSWindowClass">PrefsWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<string key="NSWindowContentMinSize">{391, 197}</string>
@@ -1507,12 +1507,6 @@
 				<string key="NSClassName">MLSwitcher2Controller</string>
 			</object>
 			<object class="NSUserDefaultsController" id="16205276">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>ShowStatusItem</string>
-					<string>StartAtLogin</string>
-					<string>ShowPrefsOnLaunch</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSCustomObject" id="468691649">
@@ -4173,6 +4167,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">ShortcutRecoder/SRValidator.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PrefsWindow</string>
+					<string key="superclassName">NSWindow</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">PrefsWindow.h</string>
 					</object>
 				</object>
 			</object>
