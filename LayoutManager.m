@@ -145,7 +145,6 @@ static LayoutManager *sharedInstance = nil;
 }
 
 - (void) hotkeyWithEvent:(NSEvent *)hkEvent object:(id)anObject {
-    NSLog(@"%@", hkEvent, anObject);
     [self setLayout:anObject];
 }
 
