@@ -12,6 +12,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9F2DFCFB1661EC5800445862 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */; };
 		9F3E1AFE13120B57000E1F17 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AF513120B57000E1F17 /* SRCommon.m */; };
 		9F3E1AFF13120B57000E1F17 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AF713120B57000E1F17 /* SRKeyCodeTransformer.m */; };
 		9F3E1B0013120B57000E1F17 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AF913120B57000E1F17 /* SRRecorderCell.m */; };
@@ -43,6 +44,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* MLSwitcher2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MLSwitcher2-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MLSwitcher2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLSwitcher2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = ../../../../Library/Frameworks/ShortcutRecorder.framework; sourceTree = "<group>"; };
 		9F3E1AF413120B57000E1F17 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRCommon.h; path = ShortcutRecoder/SRCommon.h; sourceTree = "<group>"; };
 		9F3E1AF513120B57000E1F17 /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRCommon.m; path = ShortcutRecoder/SRCommon.m; sourceTree = "<group>"; };
 		9F3E1AF613120B57000E1F17 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKeyCodeTransformer.h; path = ShortcutRecoder/SRKeyCodeTransformer.h; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2DFCFB1661EC5800445862 /* ShortcutRecorder.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */,
 			);
@@ -136,6 +139,7 @@
 		29B97314FDCFA39411CA2CEA /* MLSwitcher2 */ = {
 			isa = PBXGroup;
 			children = (
+				9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */,
 				9F3E1AF313120B3B000E1F17 /* ShortcutRecorder */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -308,8 +312,9 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.7;
 				VALID_ARCHS = "i386 x86_64";
 			};
 			name = AppStore;
@@ -326,6 +331,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MLSwitcher2_Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = MLSwitcher2;
@@ -347,6 +353,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MLSwitcher2_Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = MLSwitcher2;
@@ -365,6 +372,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MLSwitcher2_Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = MLSwitcher2;
@@ -379,9 +387,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -392,8 +401,9 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
