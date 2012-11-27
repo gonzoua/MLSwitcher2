@@ -12,7 +12,6 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		9F2DFCFB1661EC5800445862 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */; };
 		9F3E1AFE13120B57000E1F17 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AF513120B57000E1F17 /* SRCommon.m */; };
 		9F3E1AFF13120B57000E1F17 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AF713120B57000E1F17 /* SRKeyCodeTransformer.m */; };
 		9F3E1B0013120B57000E1F17 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AF913120B57000E1F17 /* SRRecorderCell.m */; };
@@ -45,16 +44,16 @@
 		8D1107310486CEB800E47090 /* MLSwitcher2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MLSwitcher2-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MLSwitcher2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLSwitcher2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = ../../../../Library/Frameworks/ShortcutRecorder.framework; sourceTree = "<group>"; };
-		9F3E1AF413120B57000E1F17 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRCommon.h; path = ShortcutRecoder/SRCommon.h; sourceTree = "<group>"; };
-		9F3E1AF513120B57000E1F17 /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRCommon.m; path = ShortcutRecoder/SRCommon.m; sourceTree = "<group>"; };
-		9F3E1AF613120B57000E1F17 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKeyCodeTransformer.h; path = ShortcutRecoder/SRKeyCodeTransformer.h; sourceTree = "<group>"; };
-		9F3E1AF713120B57000E1F17 /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKeyCodeTransformer.m; path = ShortcutRecoder/SRKeyCodeTransformer.m; sourceTree = "<group>"; };
-		9F3E1AF813120B57000E1F17 /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRRecorderCell.h; path = ShortcutRecoder/SRRecorderCell.h; sourceTree = "<group>"; };
-		9F3E1AF913120B57000E1F17 /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRRecorderCell.m; path = ShortcutRecoder/SRRecorderCell.m; sourceTree = "<group>"; };
-		9F3E1AFA13120B57000E1F17 /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRRecorderControl.h; path = ShortcutRecoder/SRRecorderControl.h; sourceTree = "<group>"; };
-		9F3E1AFB13120B57000E1F17 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRRecorderControl.m; path = ShortcutRecoder/SRRecorderControl.m; sourceTree = "<group>"; };
-		9F3E1AFC13120B57000E1F17 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRValidator.h; path = ShortcutRecoder/SRValidator.h; sourceTree = "<group>"; };
-		9F3E1AFD13120B57000E1F17 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = ShortcutRecoder/SRValidator.m; sourceTree = "<group>"; };
+		9F3E1AF413120B57000E1F17 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRCommon.h; path = ShortcutRecorder/SRCommon.h; sourceTree = "<group>"; };
+		9F3E1AF513120B57000E1F17 /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRCommon.m; path = ShortcutRecorder/SRCommon.m; sourceTree = "<group>"; };
+		9F3E1AF613120B57000E1F17 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRKeyCodeTransformer.h; path = ShortcutRecorder/SRKeyCodeTransformer.h; sourceTree = "<group>"; };
+		9F3E1AF713120B57000E1F17 /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRKeyCodeTransformer.m; path = ShortcutRecorder/SRKeyCodeTransformer.m; sourceTree = "<group>"; };
+		9F3E1AF813120B57000E1F17 /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRRecorderCell.h; path = ShortcutRecorder/SRRecorderCell.h; sourceTree = "<group>"; };
+		9F3E1AF913120B57000E1F17 /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRRecorderCell.m; path = ShortcutRecorder/SRRecorderCell.m; sourceTree = "<group>"; };
+		9F3E1AFA13120B57000E1F17 /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRRecorderControl.h; path = ShortcutRecorder/SRRecorderControl.h; sourceTree = "<group>"; };
+		9F3E1AFB13120B57000E1F17 /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRRecorderControl.m; path = ShortcutRecorder/SRRecorderControl.m; sourceTree = "<group>"; };
+		9F3E1AFC13120B57000E1F17 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRValidator.h; path = ShortcutRecorder/SRValidator.h; sourceTree = "<group>"; };
+		9F3E1AFD13120B57000E1F17 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = ShortcutRecorder/SRValidator.m; sourceTree = "<group>"; };
 		9F3E1B0513120C48000E1F17 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
 		9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
 		9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_layout.png; sourceTree = "<group>"; };
@@ -79,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F2DFCFB1661EC5800445862 /* ShortcutRecorder.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */,
 			);
