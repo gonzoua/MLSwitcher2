@@ -10,12 +10,13 @@
 #include <Carbon/Carbon.h>
 #include <ShortcutRecorder/ShortcutRecorder.h>
 
-@interface MLSwitcher2Controller : NSObject {
+@interface MLSwitcher2Controller : NSObject<NSMenuDelegate> {
     int sourcePlaceholders;
     IBOutlet NSView *sourcesView;
     IBOutlet NSView *shortcutsView;
     IBOutlet NSView *prefsView;
     IBOutlet NSWindow *window;
+    IBOutlet NSPopUpButton *comboesButton;
     NSMutableDictionary *modifiersSettings;
     NSMutableArray *allSubviews;
     NSArray *currentLayouts;

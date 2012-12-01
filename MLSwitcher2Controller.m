@@ -27,6 +27,8 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
         selector:@selector(escapeKeysPressed) 
             name:@"notifyEscapeKeyPressedFromControllerWindow" 
             object:nil];
+    
+     [[comboesButton menu] setDelegate:self];
 
 }
 
@@ -171,6 +173,15 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
 - (void) escapeKeysPressed
 {
     [window close];
+}
+
+- (void)menuDidClose:(NSMenu *)menu 
+{
+    if(menu == [comboesButton menu])
+    {
+
+        [[LayoutManager sharedInstance] setMaskIndex:[comboesButton indexOfSelectedItem]];
+    }
 }
 
 @end

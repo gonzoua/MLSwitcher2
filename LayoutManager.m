@@ -11,6 +11,33 @@
 
 #include <Carbon/Carbon.h>
 
+#define INVALID_MASK 0xffffffff
+#define MAX_MASK 5
+NSUInteger cycleComboMasks[MAX_MASK] = {
+    INVALID_MASK,
+    NSShiftKeyMask | NSControlKeyMask,
+    NSShiftKeyMask | NSAlternateKeyMask,
+    NSShiftKeyMask | NSCommandKeyMask,
+    NSAlphaShiftKeyMask
+};
+
+CGEventRef eventTapCallback(
+                            CGEventTapProxy proxy,
+                            CGEventType type,
+                            CGEventRef event,
+                            void *vp)
+{
+	LayoutManager *manager = vp;
+	switch (type)
+	{
+
+        case kCGEventFlagsChanged:
+            [manager flagsChanged:event];
+            break;
+	}
+	return (event);
+}
+
 static LayoutManager *sharedInstance = nil;
 
 @implementation LayoutManager
@@ -63,7 +90,35 @@ static LayoutManager *sharedInstance = nil;
         _layouts = [[NSMutableArray alloc] init];
         _combos = NULL;
         _hotKeyCenter = [[DDHotKeyCenter alloc] init];
+        _cycleComboMask = INVALID_MASK;
         [self reloadLayouts];
+        
+        CFMachPortRef tap;
+
+        tap = CGEventTapCreate(
+                               kCGSessionEventTap,
+                               kCGHeadInsertEventTap,
+                               kCGEventTapOptionListenOnly,
+                               CGEventMaskBit(kCGEventKeyDown) |
+                               CGEventMaskBit(kCGEventFlagsChanged) |
+                               CGEventMaskBit(kCGEventRightMouseUp) |
+                               CGEventMaskBit(kCGEventRightMouseDown) |
+                               CGEventMaskBit(kCGEventLeftMouseUp) |
+                               CGEventMaskBit(kCGEventLeftMouseDown),
+                               eventTapCallback,
+                               self
+                               );
+        
+        
+        CFRunLoopSourceRef eventSrc = CFMachPortCreateRunLoopSource(NULL, tap, 0);
+        if (eventSrc == NULL)
+            NSLog(@"Could not create a run loop source.");
+        
+        CFRunLoopRef runLoop = CFRunLoopGetCurrent();
+        if (runLoop == NULL)
+            NSLog(@"There is no current run loop.");
+        
+        CFRunLoopAddSource( runLoop, eventSrc, kCFRunLoopDefaultMode );
     }
     return self;
 }
@@ -90,6 +145,12 @@ static LayoutManager *sharedInstance = nil;
     
     TISInputSourceRef inputKeyboardLayout;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSInteger maskIdx = [defaults integerForKey:@"CycleComboIndex"];
+
+    [self setMaskIndex:maskIdx];
+    
+    
     _combos = (void*)malloc(sizeof(LayoutConfig)*n);
     for (CFIndex i = 0; i < n; ++i) {
         inputKeyboardLayout = (TISInputSourceRef) CFArrayGetValueAtIndex(kbds, i);
@@ -139,13 +200,98 @@ static LayoutManager *sharedInstance = nil;
     for (int i = 0; i < _layoutsCount; i++) {
         if (_combos[i].combo != combo)
             continue;
-        
         [self setLayout:_combos[i].layout];
     }
 }
 
 - (void) hotkeyWithEvent:(NSEvent *)hkEvent object:(id)anObject {
     [self setLayout:anObject];
+}
+
+- (void)setNextLayout
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    bool next = false;
+
+    TISInputSourceRef currentLayout = TISCopyCurrentKeyboardInputSource();
+    NSString *currentId = TISGetInputSourceProperty(currentLayout, kTISPropertyInputSourceID);
+    for (Layout *l in _layouts) {
+        if (next) {
+            next = false;
+            TISSelectInputSource(l.sourceRef);
+            break;
+        }
+        if ([l.sourceId isEqualToString:currentId]) {
+            next = true;
+        }
+    }
+    
+    if (next) {
+        Layout *l = [_layouts objectAtIndex:0];
+        TISSelectInputSource(l.sourceRef);
+    }
+    
+    [pool drain];
+}
+
+- (void)setPrevLayout
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    Layout  *prevLayout = NULL;
+    
+    TISInputSourceRef currentLayout = TISCopyCurrentKeyboardInputSource();
+    NSString *currentId = TISGetInputSourceProperty(currentLayout, kTISPropertyInputSourceID);
+    for (Layout *l in _layouts) {
+        if ([l.sourceId isEqualToString:currentId]) {
+            if (prevLayout)
+                TISSelectInputSource(prevLayout.sourceRef);
+
+            break;
+        }
+        prevLayout = l;
+    }
+    
+    if (prevLayout == NULL) {
+        Layout *l = [_layouts lastObject];
+        TISSelectInputSource(l.sourceRef);
+    }
+    
+    [pool drain];
+}
+
+- (void)flagsChanged:(CGEventRef)event
+{
+    uint32_t modifiers = 0;
+    CGEventFlags f = CGEventGetFlags( event );
+    
+    if (_cycleComboMask == INVALID_MASK)
+        return;
+    
+    if (f & kCGEventFlagMaskShift)
+        modifiers |= NSShiftKeyMask;
+    
+    if (f & kCGEventFlagMaskCommand)
+        modifiers |= NSCommandKeyMask;
+    
+    if (f & kCGEventFlagMaskControl)
+        modifiers |= NSControlKeyMask;
+    
+    if (f & kCGEventFlagMaskAlternate)
+        modifiers |= NSAlternateKeyMask;
+    
+    if (f & kCGEventFlagMaskAlphaShift)
+        modifiers |= NSAlphaShiftKeyMask;
+    
+    if (modifiers == _cycleComboMask)
+        [self setNextLayout];
+}
+
+- (void)setMaskIndex:(int)maskIdx
+{
+    if ((maskIdx < 0) || (maskIdx >= MAX_MASK))
+        maskIdx = 0;
+    
+    _cycleComboMask = cycleComboMasks[maskIdx];
 }
 
 @end

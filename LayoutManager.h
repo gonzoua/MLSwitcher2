@@ -19,6 +19,7 @@ typedef struct {
     int _layoutsCount; // for performance
     DDHotKeyCenter *_hotKeyCenter;
     LayoutConfig *_combos;
+    NSUInteger _cycleComboMask;
 }
 
 - (id)init;
@@ -27,5 +28,7 @@ typedef struct {
 - (NSArray*)layouts;
 - (void)setLayout:(NSString*)layout;
 - (void)setLayoutForCombination:(int)combo;
+- (void)flagsChanged:(CGEventRef)event;
+- (void)setMaskIndex:(int)maskIdx;
 
 @end

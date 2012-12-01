@@ -32,6 +32,7 @@
         [defaults setBool:YES forKey:@"ShowStatusItem"];
         [defaults setBool:NO forKey:@"StartAtLogin"];
         [defaults setBool:YES forKey:@"ShowPrefsOnLaunch"];
+        [defaults setInteger:0 forKey:@"CycleComboIndex"];
     }    
     
     if ([defaults boolForKey:@"ShowStatusItem"])
