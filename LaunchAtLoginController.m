@@ -62,9 +62,9 @@
 }
 
 - (void)setLaunchAtLogin:(BOOL)enabled {
-    [self willChangeValueForKey:@"startAtLogin"];
+    [self willChangeValueForKey:@"StartAtLogin"];
     [self setLaunchAtLogin:[self appURL] enabled:enabled];
-    [self didChangeValueForKey:@"startAtLogin"];
+    [self didChangeValueForKey:@"StartAtLogin"];
 }
 
 
