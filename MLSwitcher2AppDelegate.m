@@ -8,8 +8,18 @@
 
 #import "MLSwitcher2AppDelegate.h"
 #import "LayoutManager.h"
+#import "LetsMove/PFMoveApplication.h"
 
 @implementation MLSwitcher2AppDelegate
+
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+    // Offer to the move the Application if necessary.
+    // Note that if the user chooses to move the application,
+    // this call will never return. Therefore you can suppress
+    // any first run UI by putting it after this call.
+    
+    PFMoveToApplicationsFolderIfNecessary();
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSProxy *proxy = [NSConnection rootProxyForConnectionWithRegisteredName:@"com.bluezbox.mlswitcher2.notify" host:nil];

@@ -28,6 +28,9 @@
 		9F8F03FB13138EBB00C21E17 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8F03FA13138EBB00C21E17 /* LaunchAtLoginController.m */; };
 		9FB8D7301313944600217DC6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9FB8D72F1313944600217DC6 /* Credits.rtf */; };
 		9FB8D7381314B46200217DC6 /* PrefsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB8D7371314B46200217DC6 /* PrefsWindow.m */; };
+		9FEB8152166C8563007F3599 /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB814F166C8562007F3599 /* NSString+SymlinksAndAliases.m */; };
+		9FEB8153166C8563007F3599 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB8151166C8562007F3599 /* PFMoveApplication.m */; };
+		9FEB8155166C8595007F3599 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEB8154166C8594007F3599 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +74,11 @@
 		9FB8D72F1313944600217DC6 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		9FB8D7361314B46200217DC6 /* PrefsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsWindow.h; sourceTree = "<group>"; };
 		9FB8D7371314B46200217DC6 /* PrefsWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsWindow.m; sourceTree = "<group>"; };
+		9FEB814E166C8562007F3599 /* NSString+SymlinksAndAliases.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SymlinksAndAliases.h"; path = "LetsMove/NSString+SymlinksAndAliases.h"; sourceTree = "<group>"; };
+		9FEB814F166C8562007F3599 /* NSString+SymlinksAndAliases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SymlinksAndAliases.m"; path = "LetsMove/NSString+SymlinksAndAliases.m"; sourceTree = "<group>"; };
+		9FEB8150166C8562007F3599 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = LetsMove/PFMoveApplication.h; sourceTree = "<group>"; };
+		9FEB8151166C8562007F3599 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = LetsMove/PFMoveApplication.m; sourceTree = "<group>"; };
+		9FEB8154166C8594007F3599 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FEB8155166C8595007F3599 /* Security.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */,
 			);
@@ -89,6 +98,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9FEB814E166C8562007F3599 /* NSString+SymlinksAndAliases.h */,
+				9FEB814F166C8562007F3599 /* NSString+SymlinksAndAliases.m */,
+				9FEB8150166C8562007F3599 /* PFMoveApplication.h */,
+				9FEB8151166C8562007F3599 /* PFMoveApplication.m */,
 				9F8F03F913138EBB00C21E17 /* LaunchAtLoginController.h */,
 				9F8F03FA13138EBB00C21E17 /* LaunchAtLoginController.m */,
 				9F3E1B0513120C48000E1F17 /* DDHotKeyCenter.h */,
@@ -137,6 +150,7 @@
 		29B97314FDCFA39411CA2CEA /* MLSwitcher2 */ = {
 			isa = PBXGroup;
 			children = (
+				9FEB8154166C8594007F3599 /* Security.framework */,
 				9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */,
 				9F3E1AF313120B3B000E1F17 /* ShortcutRecorder */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -276,6 +290,8 @@
 				9F3E1B0713120C48000E1F17 /* DDHotKeyCenter.m in Sources */,
 				9F8F03FB13138EBB00C21E17 /* LaunchAtLoginController.m in Sources */,
 				9FB8D7381314B46200217DC6 /* PrefsWindow.m in Sources */,
+				9FEB8152166C8563007F3599 /* NSString+SymlinksAndAliases.m in Sources */,
+				9FEB8153166C8563007F3599 /* PFMoveApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
