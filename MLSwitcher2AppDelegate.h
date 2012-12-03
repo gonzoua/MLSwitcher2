@@ -24,6 +24,5 @@
 - (void) hideStatusItem;
 
 - (IBAction) statusItemButtonClicked:(id)sender;
-- (IBAction) startAtLoginButtonClicked:(id)sender;
 
 @end

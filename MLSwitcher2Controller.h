@@ -24,5 +24,6 @@
 
 - (void)refreshSources;
 - (void)preferences;
+- (IBAction)setCombo:(id)sender;
 
 @end

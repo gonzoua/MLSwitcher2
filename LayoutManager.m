@@ -154,12 +154,27 @@ static LayoutManager *sharedInstance = nil;
     _combos = (void*)malloc(sizeof(LayoutConfig)*n);
     for (CFIndex i = 0; i < n; ++i) {
         inputKeyboardLayout = (TISInputSourceRef) CFArrayGetValueAtIndex(kbds, i);
+        
+        NSString *type = TISGetInputSourceProperty( inputKeyboardLayout, kTISPropertyInputSourceType);
+        if ([type isEqualToString:kTISTypeKeyboardInputMethodModeEnabled])
+            continue;
+        
         NSString *sId = TISGetInputSourceProperty( inputKeyboardLayout, kTISPropertyInputSourceID);
 
         NSString *name = TISGetInputSourceProperty( inputKeyboardLayout, kTISPropertyLocalizedName);
 
         IconRef iconRef = TISGetInputSourceProperty( inputKeyboardLayout, kTISPropertyIconRef);
-        NSImage *img = [[NSImage alloc] initWithIconRef:iconRef];
+        
+
+        
+        NSImage *img = nil;
+        if (iconRef != 0) {
+            img = [[NSImage alloc] initWithIconRef:iconRef];
+        }
+        else {
+            NSURL *url = TISGetInputSourceProperty(inputKeyboardLayout, kTISPropertyIconImageURL);
+            img = [[NSImage alloc] initWithContentsOfURL:url];
+        }
         Layout *l = [[Layout alloc] init];
         l.name = name;
         l.image = img;

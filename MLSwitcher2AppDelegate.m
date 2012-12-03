@@ -41,6 +41,9 @@
     if (firstTime || [defaults boolForKey:@"ShowPrefsOnLaunch"]) {
         [controller preferences];
     }
+    
+    // Init layout manager
+    [[LayoutManager sharedInstance] reloadLayouts];
 }
 
 - (id)showPrefs
@@ -129,10 +132,6 @@
         [self hideStatusItem];
     }
 
-}
-
-- (IBAction) startAtLoginButtonClicked:(id)sender
-{
 }
 
 - (BOOL) applicationShouldHandleReopen:(NSApplication *)theApplication
