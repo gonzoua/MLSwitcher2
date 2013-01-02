@@ -17,6 +17,7 @@
     IBOutlet NSView *prefsView;
     IBOutlet NSWindow *window;
     IBOutlet NSPopUpButton *comboesButton;
+    IBOutlet NSButton *updateButton;
     NSMutableDictionary *modifiersSettings;
     NSMutableArray *allSubviews;
     NSArray *currentLayouts;

@@ -8,11 +8,13 @@
 
 #import "LayoutManager.h"
 #import "Layout.h"
-
-#include <Carbon/Carbon.h>
+#import "Verifier.h"
+#import "MLSwitcher2AppDelegate.h"
 
 #define INVALID_MASK 0xffffffff
 #define MAX_MASK 5
+#define MAX_SWITCHES 20
+
 NSUInteger cycleComboMasks[MAX_MASK] = {
     INVALID_MASK,
     NSShiftKeyMask | NSControlKeyMask,
@@ -91,6 +93,7 @@ static LayoutManager *sharedInstance = nil;
         _combos = NULL;
         _hotKeyCenter = [[DDHotKeyCenter alloc] init];
         _cycleComboMask = INVALID_MASK;
+        _counter = 0;
         [self reloadLayouts];
         
         CFMachPortRef tap;
@@ -220,6 +223,19 @@ static LayoutManager *sharedInstance = nil;
 }
 
 - (void) hotkeyWithEvent:(NSEvent *)hkEvent object:(id)anObject {
+    _counter++;
+    
+    if (_counter > MAX_SWITCHES) {
+        if ([[Verifier sharedInstance] isOKToGo]) {
+            _counter = 0;
+        }
+        else {
+            
+            [self showAlert];
+            return;
+        }
+    }
+    
     [self setLayout:anObject];
 }
 
@@ -297,8 +313,28 @@ static LayoutManager *sharedInstance = nil;
     if (f & kCGEventFlagMaskAlphaShift)
         modifiers |= NSAlphaShiftKeyMask;
     
-    if (modifiers == _cycleComboMask)
+    if (modifiers == _cycleComboMask) {
+        _counter++;
+        
+        CGEventTimestamp nanoseconds = CGEventGetTimestamp(event);
+        NSTimeInterval seconds = (NSTimeInterval)nanoseconds / 1000000000.0;
+        
+        // ignore all events that happened before register message was shown
+        if (seconds < _lastMessage)
+            return;
+        
+        if (_counter > MAX_SWITCHES) {
+            if ([[Verifier sharedInstance] isOKToGo]) {
+                _counter = 0;
+            }
+            else {
+                [self showAlert];
+                return;
+            }
+        }
+        
         [self setNextLayout];
+    }
 }
 
 - (void)setMaskIndex:(int)maskIdx
@@ -307,6 +343,32 @@ static LayoutManager *sharedInstance = nil;
         maskIdx = 0;
     
     _cycleComboMask = cycleComboMasks[maskIdx];
+}
+
+- (void)showAlert
+{
+    if (_alertVisible)
+        return;
+    
+    ProcessSerialNumber psn;
+    if (noErr == GetCurrentProcess(&psn))
+    {
+        SetFrontProcess(&psn);
+    }
+
+    _alertVisible = YES;
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    [alert setMessageText:@"This copy of MLSwitcher2 is not registered. Please register your copy."];
+    [alert addButtonWithTitle:@"Register..."];
+    [alert addButtonWithTitle:@"OK"];
+    
+    NSInteger idx = [alert runModal];
+    _alertVisible = NO;
+    _lastMessage = GetCurrentEventTime();
+    if (idx == 1000) {
+        MLSwitcher2AppDelegate* delegate = [[NSApplication sharedApplication] delegate];
+        [delegate actionLicense:self];
+    }
 }
 
 @end

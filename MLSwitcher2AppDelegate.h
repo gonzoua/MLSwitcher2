@@ -7,19 +7,27 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Sparkle/SUUpdater.h"
 #import "MLSwitcher2Controller.h"
+#import "LicenseWindowController.h"
+
 
 @interface MLSwitcher2AppDelegate : NSObject <NSApplicationDelegate> {
     NSConnection *serverConnection;
     uint32_t currentFlags;
     IBOutlet MLSwitcher2Controller *controller;
-    NSStatusItem *statusItem; 
+    IBOutlet SUUpdater *updater;
+    NSStatusItem *statusItem;
+    LicenseWindowController *licenseWindowController;
 }
 
 - (NSMenu *) createMenu;
 - (void) actionQuit: (id)sender;
 - (void) actionAbout: (id)sender;
 - (void) actionPreferences: (id)sender;
+- (void) actionLicense: (id)sender;
+- (void) actionCheckForUpdates: (id)sender;
+
 - (void) createStatusItem;
 - (void) hideStatusItem;
 

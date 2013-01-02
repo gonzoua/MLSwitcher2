@@ -19,6 +19,16 @@
 		9F3E1B0213120B57000E1F17 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AFD13120B57000E1F17 /* SRValidator.m */; };
 		9F3E1B0713120C48000E1F17 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */; };
 		9F3E1B6C131225E2000E1F17 /* keyboard_layout.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */; };
+		9F7337E51687905700D49F9E /* CFobError.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337E01687905700D49F9E /* CFobError.m */; };
+		9F7337E61687905700D49F9E /* CFobLicVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337E21687905700D49F9E /* CFobLicVerifier.m */; };
+		9F7337E71687905700D49F9E /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337E31687905700D49F9E /* decoder.c */; };
+		9F7337E9168790A000D49F9E /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7337E8168790A000D49F9E /* libcrypto.dylib */; };
+		9F7337EF1687945700D49F9E /* NSString-Base64Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337EC1687945700D49F9E /* NSString-Base64Extensions.m */; };
+		9F7337F01687945700D49F9E /* NSString+PECrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337EE1687945700D49F9E /* NSString+PECrypt.m */; };
+		9F7337F31693948500D49F9E /* Verifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337F21693948500D49F9E /* Verifier.m */; };
+		9F7CD4A116701D6800A458B6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9F7CD4A016701D6800A458B6 /* Sparkle.framework */; };
+		9F7CD4A21677EE9300A458B6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7CD4A016701D6800A458B6 /* Sparkle.framework */; };
+		9F7CD4A4167A88E200A458B6 /* License.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7CD4A3167A88E200A458B6 /* License.xib */; };
 		9F8186501310D6EF00DAA1DF /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81864D1310D6EF00DAA1DF /* Layout.m */; };
 		9F8186511310D6EF00DAA1DF /* LayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81864F1310D6EF00DAA1DF /* LayoutManager.m */; };
 		9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F81865E1310D7C900DAA1DF /* Carbon.framework */; };
@@ -31,7 +41,21 @@
 		9FEB8152166C8563007F3599 /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB814F166C8562007F3599 /* NSString+SymlinksAndAliases.m */; };
 		9FEB8153166C8563007F3599 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB8151166C8562007F3599 /* PFMoveApplication.m */; };
 		9FEB8155166C8595007F3599 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEB8154166C8594007F3599 /* Security.framework */; };
+		9FEDF74B167EBD7300E1582D /* LicenseWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDF74A167EBD7300E1582D /* LicenseWindowController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9F7CD49F16701D3800A458B6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9F7CD4A116701D6800A458B6 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -60,6 +84,21 @@
 		9F3E1B0513120C48000E1F17 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
 		9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
 		9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_layout.png; sourceTree = "<group>"; };
+		9F7337DF1687905700D49F9E /* CFobError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFobError.h; path = CocoaFob/CFobError.h; sourceTree = "<group>"; };
+		9F7337E01687905700D49F9E /* CFobError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFobError.m; path = CocoaFob/CFobError.m; sourceTree = "<group>"; };
+		9F7337E11687905700D49F9E /* CFobLicVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFobLicVerifier.h; path = CocoaFob/CFobLicVerifier.h; sourceTree = "<group>"; };
+		9F7337E21687905700D49F9E /* CFobLicVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFobLicVerifier.m; path = CocoaFob/CFobLicVerifier.m; sourceTree = "<group>"; };
+		9F7337E31687905700D49F9E /* decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = decoder.c; path = CocoaFob/decoder.c; sourceTree = "<group>"; };
+		9F7337E41687905700D49F9E /* decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = decoder.h; path = CocoaFob/decoder.h; sourceTree = "<group>"; };
+		9F7337E8168790A000D49F9E /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		9F7337EB1687945700D49F9E /* NSString-Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString-Base64Extensions.h"; path = "CocoaFob/NSString-Base64Extensions.h"; sourceTree = "<group>"; };
+		9F7337EC1687945700D49F9E /* NSString-Base64Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString-Base64Extensions.m"; path = "CocoaFob/NSString-Base64Extensions.m"; sourceTree = "<group>"; };
+		9F7337ED1687945700D49F9E /* NSString+PECrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PECrypt.h"; path = "CocoaFob/NSString+PECrypt.h"; sourceTree = "<group>"; };
+		9F7337EE1687945700D49F9E /* NSString+PECrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PECrypt.m"; path = "CocoaFob/NSString+PECrypt.m"; sourceTree = "<group>"; };
+		9F7337F11693948500D49F9E /* Verifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verifier.h; sourceTree = "<group>"; };
+		9F7337F21693948500D49F9E /* Verifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verifier.m; sourceTree = "<group>"; };
+		9F7CD4A016701D6800A458B6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		9F7CD4A3167A88E200A458B6 /* License.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = License.xib; sourceTree = "<group>"; };
 		9F81864C1310D6EF00DAA1DF /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
 		9F81864D1310D6EF00DAA1DF /* Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
 		9F81864E1310D6EF00DAA1DF /* LayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
@@ -79,6 +118,8 @@
 		9FEB8150166C8562007F3599 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = LetsMove/PFMoveApplication.h; sourceTree = "<group>"; };
 		9FEB8151166C8562007F3599 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = LetsMove/PFMoveApplication.m; sourceTree = "<group>"; };
 		9FEB8154166C8594007F3599 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9FEDF749167EBD7300E1582D /* LicenseWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseWindowController.h; sourceTree = "<group>"; };
+		9FEDF74A167EBD7300E1582D /* LicenseWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F7337E9168790A000D49F9E /* libcrypto.dylib in Frameworks */,
+				9F7CD4A21677EE9300A458B6 /* Sparkle.framework in Frameworks */,
 				9FEB8155166C8595007F3599 /* Security.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */,
@@ -98,6 +141,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9F7337EA1687943F00D49F9E /* CocoaFob */,
 				9FEB814E166C8562007F3599 /* NSString+SymlinksAndAliases.h */,
 				9FEB814F166C8562007F3599 /* NSString+SymlinksAndAliases.m */,
 				9FEB8150166C8562007F3599 /* PFMoveApplication.h */,
@@ -116,6 +160,10 @@
 				256AC3D90F4B6AC300CF3369 /* MLSwitcher2AppDelegate.m */,
 				9FB8D7361314B46200217DC6 /* PrefsWindow.h */,
 				9FB8D7371314B46200217DC6 /* PrefsWindow.m */,
+				9FEDF749167EBD7300E1582D /* LicenseWindowController.h */,
+				9FEDF74A167EBD7300E1582D /* LicenseWindowController.m */,
+				9F7337F11693948500D49F9E /* Verifier.h */,
+				9F7337F21693948500D49F9E /* Verifier.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -150,6 +198,8 @@
 		29B97314FDCFA39411CA2CEA /* MLSwitcher2 */ = {
 			isa = PBXGroup;
 			children = (
+				9F7337E8168790A000D49F9E /* libcrypto.dylib */,
+				9F7CD4A016701D6800A458B6 /* Sparkle.framework */,
 				9FEB8154166C8594007F3599 /* Security.framework */,
 				9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */,
 				9F3E1AF313120B3B000E1F17 /* ShortcutRecorder */,
@@ -181,6 +231,7 @@
 				8D1107310486CEB800E47090 /* MLSwitcher2-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				9F7CD4A3167A88E200A458B6 /* License.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -211,6 +262,23 @@
 			name = ShortcutRecorder;
 			sourceTree = "<group>";
 		};
+		9F7337EA1687943F00D49F9E /* CocoaFob */ = {
+			isa = PBXGroup;
+			children = (
+				9F7337EB1687945700D49F9E /* NSString-Base64Extensions.h */,
+				9F7337EC1687945700D49F9E /* NSString-Base64Extensions.m */,
+				9F7337ED1687945700D49F9E /* NSString+PECrypt.h */,
+				9F7337EE1687945700D49F9E /* NSString+PECrypt.m */,
+				9F7337DF1687905700D49F9E /* CFobError.h */,
+				9F7337E01687905700D49F9E /* CFobError.m */,
+				9F7337E11687905700D49F9E /* CFobLicVerifier.h */,
+				9F7337E21687905700D49F9E /* CFobLicVerifier.m */,
+				9F7337E31687905700D49F9E /* decoder.c */,
+				9F7337E41687905700D49F9E /* decoder.h */,
+			);
+			name = CocoaFob;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +289,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				9F7CD49F16701D3800A458B6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -267,6 +336,7 @@
 				9F8186721311C7B200DAA1DF /* MLSwitcher2.icns in Resources */,
 				9F3E1B6C131225E2000E1F17 /* keyboard_layout.png in Resources */,
 				9FB8D7301313944600217DC6 /* Credits.rtf in Resources */,
+				9F7CD4A4167A88E200A458B6 /* License.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +362,13 @@
 				9FB8D7381314B46200217DC6 /* PrefsWindow.m in Sources */,
 				9FEB8152166C8563007F3599 /* NSString+SymlinksAndAliases.m in Sources */,
 				9FEB8153166C8563007F3599 /* PFMoveApplication.m in Sources */,
+				9FEDF74B167EBD7300E1582D /* LicenseWindowController.m in Sources */,
+				9F7337E51687905700D49F9E /* CFobError.m in Sources */,
+				9F7337E61687905700D49F9E /* CFobLicVerifier.m in Sources */,
+				9F7337E71687905700D49F9E /* decoder.c in Sources */,
+				9F7337EF1687945700D49F9E /* NSString-Base64Extensions.m in Sources */,
+				9F7337F01687945700D49F9E /* NSString+PECrypt.m in Sources */,
+				9F7337F31693948500D49F9E /* Verifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

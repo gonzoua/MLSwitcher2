@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#include <Carbon/Carbon.h>
+
 #import "DDHotKeyCenter.h"
 
 typedef struct {
@@ -20,6 +22,9 @@ typedef struct {
     DDHotKeyCenter *_hotKeyCenter;
     LayoutConfig *_combos;
     NSUInteger _cycleComboMask;
+    NSUInteger _counter;
+    EventTime _lastMessage;
+    BOOL _alertVisible;
 }
 
 - (id)init;
@@ -30,5 +35,6 @@ typedef struct {
 - (void)setLayoutForCombination:(int)combo;
 - (void)flagsChanged:(CGEventRef)event;
 - (void)setMaskIndex:(int)maskIdx;
+- (void)showAlert;
 
 @end

@@ -9,6 +9,7 @@
 #import "MLSwitcher2AppDelegate.h"
 #import "LayoutManager.h"
 #import "LetsMove/PFMoveApplication.h"
+#import "Verifier.h"
 
 @implementation MLSwitcher2AppDelegate
 
@@ -22,7 +23,11 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    
+    
     NSProxy *proxy = [NSConnection rootProxyForConnectionWithRegisteredName:@"com.bluezbox.mlswitcher2.notify" host:nil];
+    NSError *err;
+    
     if (proxy == nil) {
         serverConnection = [[NSConnection alloc] init];
         [serverConnection setRootObject:self];
@@ -54,6 +59,7 @@
     
     // Init layout manager
     [[LayoutManager sharedInstance] reloadLayouts];
+    licenseWindowController = [[LicenseWindowController alloc] initWithWindowNibName:@"License"];
 }
 
 - (id)showPrefs
@@ -67,13 +73,7 @@
     NSMenu *menu = [[NSMenu allocWithZone:menuZone] init];
     NSMenuItem *menuItem;
     
-    // Add Preferences Action
-    menuItem = [menu addItemWithTitle:@"Preferences"
-                               action:@selector(actionPreferences:)
-                        keyEquivalent:@""];
-    [menuItem setToolTip:@"Edit preferences"];
-    [menuItem setTarget:self];
-    
+
     
     // Add About Action
     menuItem = [menu addItemWithTitle:@"About"
@@ -82,7 +82,28 @@
     [menuItem setToolTip:@"About MLSwitcher2"];
     [menuItem setTarget:self];
     
-    // Add Quit Action
+    menuItem = [menu addItemWithTitle:@"Check for updates..."
+                               action:@selector(actionCheckForUpdates:)
+                        keyEquivalent:@""];
+    [menuItem setToolTip:@"License information"];
+    [menuItem setTarget:self];
+    
+    [menu addItem:[NSMenuItem separatorItem]];
+   
+    menuItem = [menu addItemWithTitle:@"License..."
+                               action:@selector(actionLicense:)
+                        keyEquivalent:@""];
+    [menuItem setToolTip:@"License information"];
+    [menuItem setTarget:self];
+    
+    menuItem = [menu addItemWithTitle:@"Preferences..."
+                               action:@selector(actionPreferences:)
+                        keyEquivalent:@""];
+    [menuItem setToolTip:@"Edit preferences"];
+    [menuItem setTarget:self];
+    
+    [menu addItem:[NSMenuItem separatorItem]];
+    
     menuItem = [menu addItemWithTitle:@"Quit"
                                action:@selector(actionQuit:)
                         keyEquivalent:@""];
@@ -154,5 +175,21 @@
     return YES;
 }
 
+-(void)actionLicense:(id)sender
+{
+    Verifier *v = [Verifier sharedInstance];
+    
+    // updated license data
+    licenseWindowController.email = v.email;
+    licenseWindowController.code = v.code;
+    
+    [NSApp activateIgnoringOtherApps:YES];
+    [[licenseWindowController window] makeKeyAndOrderFront:self];
+}
+
+-(void)actionCheckForUpdates:(id)sender
+{
+    [updater checkForUpdates:self];
+}
 
 @end
