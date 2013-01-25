@@ -144,10 +144,13 @@ static NSArray              *padKeysArray        = nil;
 //---------------------------------------------------------- 
 - (void)reloadCache:(id)sender
 {
+#ifdef notyet
+    // XXX: seems to cause high CPU usage
 	[SRKeyCodeTransformer regenerateStringToKeyCodeMapping];
+#endif
 }
 
-//---------------------------------------------------------- 
+//----------------------------------------------------------
 //  transformedValue: 
 //---------------------------------------------------------- 
 - (id) transformedValue:(id)value

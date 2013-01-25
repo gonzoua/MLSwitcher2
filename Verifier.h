@@ -11,6 +11,7 @@
 
 @interface Verifier : NSObject {
     CFobLicVerifier *_licVerifier;
+    BOOL _ok;
 }
 
 @property (readwrite, copy) NSString *email;

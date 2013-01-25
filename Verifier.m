@@ -62,7 +62,6 @@ static Verifier *sharedInstance = nil;
 - (id)init
 {
     NSError *err;
-    NSLog(@"init");
     self = [super init];
     if (self) {
         [CFobLicVerifier initOpenSSL];
@@ -82,7 +81,6 @@ static Verifier *sharedInstance = nil;
         [pem release];
         
         // [self loadLicenseInfo];
-        
     }
     return self;
 }
@@ -97,6 +95,7 @@ static Verifier *sharedInstance = nil;
         // save updated key
         self.email = anEmail;
         self.code = aCode;
+        _ok = YES;
         [self saveLicenseInfo];
         return YES;
     }
@@ -117,12 +116,16 @@ static Verifier *sharedInstance = nil;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.email = [defaults stringForKey:kEmailKey];
     self.code = [defaults stringForKey:kCodeKey];
+    if ([self check:email code:code])
+        _ok = YES;
+    else
+        _ok = NO;
 }
 
 - (BOOL)isOKToGo
 {
 
-    return [self check:email code:code];
+    return _ok;
 }
 
 

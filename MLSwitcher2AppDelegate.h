@@ -19,6 +19,7 @@
     IBOutlet SUUpdater *updater;
     NSStatusItem *statusItem;
     LicenseWindowController *licenseWindowController;
+    BOOL alertVisible;
 }
 
 - (NSMenu *) createMenu;

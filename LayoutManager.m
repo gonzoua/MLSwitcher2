@@ -13,7 +13,7 @@
 
 #define INVALID_MASK 0xffffffff
 #define MAX_MASK 5
-#define MAX_SWITCHES 20
+#define MAX_SWITCHES 30
 
 NSUInteger cycleComboMasks[MAX_MASK] = {
     INVALID_MASK,
@@ -94,6 +94,8 @@ static LayoutManager *sharedInstance = nil;
         _hotKeyCenter = [[DDHotKeyCenter alloc] init];
         _cycleComboMask = INVALID_MASK;
         _counter = 0;
+        _lastMessage = 0;
+        _alertVisible = NO;
         [self reloadLayouts];
         
         CFMachPortRef tap;
@@ -223,6 +225,10 @@ static LayoutManager *sharedInstance = nil;
 }
 
 - (void) hotkeyWithEvent:(NSEvent *)hkEvent object:(id)anObject {
+    
+    if (_alertVisible)
+        return;
+    
     _counter++;
     
     if (_counter > MAX_SWITCHES) {
@@ -230,7 +236,6 @@ static LayoutManager *sharedInstance = nil;
             _counter = 0;
         }
         else {
-            
             [self showAlert];
             return;
         }
@@ -314,10 +319,13 @@ static LayoutManager *sharedInstance = nil;
         modifiers |= NSAlphaShiftKeyMask;
     
     if (modifiers == _cycleComboMask) {
+        if (_alertVisible)
+            return;
+        
         _counter++;
         
-        CGEventTimestamp nanoseconds = CGEventGetTimestamp(event);
-        NSTimeInterval seconds = (NSTimeInterval)nanoseconds / 1000000000.0;
+        CGEventTimestamp eventTs = CGEventGetTimestamp(event);
+        NSTimeInterval seconds = (NSTimeInterval)eventTs / 1000000000.0;
         
         // ignore all events that happened before register message was shown
         if (seconds < _lastMessage)
@@ -328,6 +336,7 @@ static LayoutManager *sharedInstance = nil;
                 _counter = 0;
             }
             else {
+                _lastMessage = GetCurrentEventTime();
                 [self showAlert];
                 return;
             }
@@ -347,28 +356,15 @@ static LayoutManager *sharedInstance = nil;
 
 - (void)showAlert
 {
-    if (_alertVisible)
-        return;
-    
-    ProcessSerialNumber psn;
-    if (noErr == GetCurrentProcess(&psn))
-    {
-        SetFrontProcess(&psn);
-    }
-
     _alertVisible = YES;
-    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-    [alert setMessageText:@"This copy of MLSwitcher2 is not registered. Please register your copy."];
-    [alert addButtonWithTitle:@"Register..."];
-    [alert addButtonWithTitle:@"OK"];
-    
-    NSInteger idx = [alert runModal];
+    MLSwitcher2AppDelegate* delegate = [[NSApplication sharedApplication] delegate];
+    [delegate performSelectorOnMainThread:@selector(showAlert) withObject:nil waitUntilDone:NO];
+}
+
+- (void)hideAlert
+{
     _alertVisible = NO;
-    _lastMessage = GetCurrentEventTime();
-    if (idx == 1000) {
-        MLSwitcher2AppDelegate* delegate = [[NSApplication sharedApplication] delegate];
-        [delegate actionLicense:self];
-    }
+    _counter = 0;
 }
 
 @end

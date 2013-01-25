@@ -36,5 +36,5 @@ typedef struct {
 - (void)flagsChanged:(CGEventRef)event;
 - (void)setMaskIndex:(int)maskIdx;
 - (void)showAlert;
-
+- (void)hideAlert;
 @end

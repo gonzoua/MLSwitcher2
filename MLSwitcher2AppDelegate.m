@@ -60,6 +60,7 @@
     // Init layout manager
     [[LayoutManager sharedInstance] reloadLayouts];
     licenseWindowController = [[LicenseWindowController alloc] initWithWindowNibName:@"License"];
+    alertVisible = NO;
 }
 
 - (id)showPrefs
@@ -190,6 +191,29 @@
 -(void)actionCheckForUpdates:(id)sender
 {
     [updater checkForUpdates:self];
+}
+
+- (void) showAlert
+{
+    if (alertVisible)
+        return;
+    
+    [[NSRunningApplication currentApplication] activateWithOptions:0];
+    
+    alertVisible = YES;
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    [alert setMessageText:@"This copy of MLSwitcher2 is not registered. Please register your copy."];
+    [alert addButtonWithTitle:@"Register..."];
+    [alert addButtonWithTitle:@"OK"];
+    
+    NSInteger idx = [alert runModal];
+    [[LayoutManager sharedInstance] hideAlert];
+
+    alertVisible = NO;
+
+    if (idx == 1000) {
+        [self actionLicense:self];
+    }
 }
 
 @end
