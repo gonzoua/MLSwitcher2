@@ -13,7 +13,7 @@
 
 #define INVALID_MASK 0xffffffff
 #define MAX_MASK 5
-#define MAX_SWITCHES 30
+#define MAX_SWITCHES 20
 
 NSUInteger cycleComboMasks[MAX_MASK] = {
     INVALID_MASK,
