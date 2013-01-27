@@ -1326,7 +1326,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{335, 527}, {397, 352}}</string>
 				<int key="NSWTFlags">1954021376</int>
-				<string key="NSWindowTitle">MLSwitcher</string>
+				<string key="NSWindowTitle">MLSwitcher2</string>
 				<string key="NSWindowClass">PrefsWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
@@ -2534,6 +2534,14 @@
 						<reference key="destination" ref="293184438"/>
 					</object>
 					<int key="connectionID">617</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">updateButton</string>
+						<reference key="source" ref="455490767"/>
+						<reference key="destination" ref="562085907"/>
+					</object>
+					<int key="connectionID">645</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -4240,7 +4248,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">644</int>
+			<int key="maxID">645</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
