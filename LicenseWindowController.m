@@ -17,9 +17,6 @@
 
 @implementation LicenseWindowController
 
-@synthesize code;
-@synthesize email;
-
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
@@ -49,6 +46,8 @@
 {
     NSString *anEmail = [emailField stringValue];
     NSString *aCode = [licenseField stringValue];
+    anEmail = [anEmail stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    aCode = [aCode stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if (![[Verifier sharedInstance] checkEmail:anEmail andCode:aCode]) {
         [NSApp beginSheet:errorPanel modalForWindow:self.window
             modalDelegate:self didEndSelector:NULL contextInfo:nil];

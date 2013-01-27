@@ -80,7 +80,7 @@ static Verifier *sharedInstance = nil;
         }
         [pem release];
         
-        // [self loadLicenseInfo];
+        [self loadLicenseInfo];
     }
     return self;
 }

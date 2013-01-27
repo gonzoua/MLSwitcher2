@@ -33,9 +33,9 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2011-2012, Bluezbox Software</string>
+	<string>© 2011-2013, Bluezbox Software</string>
 	<key>SUFeedURL</key>
-	<string>http://bluezbox.com/mlswitcher/appcast.xml</string>
+	<string>http://bluezbox.com/mlswitcher2/appcast.xml</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUScheduledCheckInterval</key>
