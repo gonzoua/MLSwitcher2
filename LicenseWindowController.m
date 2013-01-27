@@ -9,7 +9,7 @@
 #import "LicenseWindowController.h"
 #import "Verifier.h"
 
-#define kPurchaseUrl @"http://bluezbox.com/"
+#define kPurchaseUrl @"http://bluezbox.com/mlswitcher2/purchase.html"
 
 @interface LicenseWindowController ()
 
