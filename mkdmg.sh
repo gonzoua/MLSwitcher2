@@ -25,10 +25,10 @@ cp -R "$TARGET_BUILD_DIR/$APPNAME.app" "/Volumes/$VOLNAME/"
 
 echo --sign frameworks --
 
-codesign --force --verify --verbose --sign "Developer ID Application: Oleksandr Tymoshenko" "/Volumes/$VOLNAME/$APPNAME.app/Contents/Frameworks/Sparkle.framework/Versions/A/Sparkle"
+codesign --preserve-metadata=identifier,entitlements,resource-rules,requirements --force --verify --verbose --sign "Developer ID Application: Oleksandr Tymoshenko" "/Volumes/$VOLNAME/$APPNAME.app/Contents/Frameworks/Sparkle.framework/Versions/A"
 
 echo --sign app--
-codesign --force --verify --verbose --sign "Developer ID Application: Oleksandr Tymoshenko" "/Volumes/$VOLNAME/$APPNAME.app"
+codesign --preserve-metadata=identifier,entitlements,resource-rules,requirements --force --verify --verbose --sign "Developer ID Application: Oleksandr Tymoshenko" "/Volumes/$VOLNAME/$APPNAME.app"
 ls -la "/Volumes/$VOLNAME/"
 hdiutil detach "/Volumes/$VOLNAME"
 
