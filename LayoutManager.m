@@ -15,6 +15,13 @@
 #define MAX_MASK 5
 #define MAX_SWITCHES 20
 
+int NumberOfSetBits(int i)
+{
+    i = i - ((i >> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
+    return (((i + (i >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24;
+}
+
 NSUInteger cycleComboMasks[MAX_MASK] = {
     INVALID_MASK,
     NSShiftKeyMask | NSControlKeyMask,
@@ -35,6 +42,12 @@ CGEventRef eventTapCallback(
 
         case kCGEventFlagsChanged:
             [manager flagsChanged:event];
+            break;
+        case kCGEventKeyDown:
+        case kCGEventRightMouseUp:
+        case kCGEventRightMouseDown:
+        case kCGEventLeftMouseUp:
+        case kCGEventLeftMouseDown:
             break;
 	}
 	return (event);
@@ -96,6 +109,8 @@ static LayoutManager *sharedInstance = nil;
         _counter = 0;
         _lastMessage = 0;
         _alertVisible = NO;
+        _armed = NO;
+        _prevModifiers = 0;
         [self reloadLayouts];
         
         CFMachPortRef tap;
@@ -295,10 +310,16 @@ static LayoutManager *sharedInstance = nil;
     [pool drain];
 }
 
+- (void)resetCombo
+{
+    _armed = NO;
+}
+
 - (void)flagsChanged:(CGEventRef)event
 {
     uint32_t modifiers = 0;
     CGEventFlags f = CGEventGetFlags( event );
+    BOOL triggerSwitch = NO;
     
     if (_cycleComboMask == INVALID_MASK)
         return;
@@ -318,7 +339,22 @@ static LayoutManager *sharedInstance = nil;
     if (f & kCGEventFlagMaskAlphaShift)
         modifiers |= NSAlphaShiftKeyMask;
     
-    if (modifiers == _cycleComboMask) {
+    if (_armed &&
+        (NumberOfSetBits(modifiers) < NumberOfSetBits(_cycleComboMask))) {
+        triggerSwitch = YES;
+    }
+    
+    // check whether we got here by pressing keys
+    if ((modifiers == _cycleComboMask) &&
+        (NumberOfSetBits(_prevModifiers) < NumberOfSetBits(_cycleComboMask))) {
+        _armed = YES;
+    }
+    
+    _prevModifiers = modifiers;
+    
+    if (triggerSwitch) {
+        _armed = NO;
+        
         if (_alertVisible)
             return;
         

@@ -22,6 +22,8 @@ typedef struct {
     DDHotKeyCenter *_hotKeyCenter;
     LayoutConfig *_combos;
     NSUInteger _cycleComboMask;
+    BOOL _armed;
+    NSUInteger _prevModifiers;
     NSUInteger _counter;
     EventTime _lastMessage;
     BOOL _alertVisible;
@@ -34,6 +36,7 @@ typedef struct {
 - (void)setLayout:(NSString*)layout;
 - (void)setLayoutForCombination:(int)combo;
 - (void)flagsChanged:(CGEventRef)event;
+- (void)resetCombo;
 - (void)setMaskIndex:(int)maskIdx;
 - (void)showAlert;
 - (void)hideAlert;
