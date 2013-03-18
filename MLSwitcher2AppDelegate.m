@@ -8,8 +8,10 @@
 
 #import "MLSwitcher2AppDelegate.h"
 #import "LayoutManager.h"
+#ifndef APP_STORE_BUILD
 #import "LetsMove/PFMoveApplication.h"
 #import "Verifier.h"
+#endif
 
 @implementation MLSwitcher2AppDelegate
 
@@ -18,8 +20,9 @@
     // Note that if the user chooses to move the application,
     // this call will never return. Therefore you can suppress
     // any first run UI by putting it after this call.
-    
+#ifndef APP_STORE_BUILD
     PFMoveToApplicationsFolderIfNecessary();
+#endif
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -178,6 +181,7 @@
 
 -(void)actionLicense:(id)sender
 {
+#ifndef APP_STORE_BUILD
     Verifier *v = [Verifier sharedInstance];
     
     // updated license data
@@ -186,6 +190,7 @@
     
     [NSApp activateIgnoringOtherApps:YES];
     [[licenseWindowController window] makeKeyAndOrderFront:self];
+#endif
 }
 
 -(void)actionCheckForUpdates:(id)sender
@@ -198,6 +203,7 @@
     if (alertVisible)
         return;
     
+#ifndef APP_STORE_BUILD
     [[NSRunningApplication currentApplication] activateWithOptions:0];
     
     alertVisible = YES;
@@ -214,6 +220,7 @@
     if (idx == 1000) {
         [self actionLicense:self];
     }
+#endif
 }
 
 @end

@@ -422,6 +422,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MLSwitcher2_Prefix.pch;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = APP_STORE_BUILD;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -509,7 +510,7 @@
 				9FB8D78F1315ADDE00217DC6 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = AppStore;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MLSwitcher2" */ = {
 			isa = XCConfigurationList;
@@ -519,7 +520,7 @@
 				9FB8D78E1315ADDE00217DC6 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = AppStore;
 		};
 /* End XCConfigurationList section */
 	};

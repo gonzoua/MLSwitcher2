@@ -246,6 +246,7 @@ static LayoutManager *sharedInstance = nil;
     
     _counter++;
     
+#ifndef APP_STORE_BUILD
     if (_counter > MAX_SWITCHES) {
         if ([[Verifier sharedInstance] isOKToGo]) {
             _counter = 0;
@@ -255,6 +256,7 @@ static LayoutManager *sharedInstance = nil;
             return;
         }
     }
+#endif
     
     [self setLayout:anObject];
 }
@@ -367,6 +369,7 @@ static LayoutManager *sharedInstance = nil;
         if (seconds < _lastMessage)
             return;
         
+#ifndef APP_STORE_BUILD
         if (_counter > MAX_SWITCHES) {
             if ([[Verifier sharedInstance] isOKToGo]) {
                 _counter = 0;
@@ -377,6 +380,7 @@ static LayoutManager *sharedInstance = nil;
                 return;
             }
         }
+#endif
         
         [self setNextLayout];
     }
