@@ -7,18 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Sparkle/SUUpdater.h"
 #import "MLSwitcher2Controller.h"
-#import "LicenseWindowController.h"
 
 
 @interface MLSwitcher2AppDelegate : NSObject <NSApplicationDelegate> {
     NSConnection *serverConnection;
     uint32_t currentFlags;
     IBOutlet MLSwitcher2Controller *controller;
-    IBOutlet SUUpdater *updater;
     NSStatusItem *statusItem;
-    LicenseWindowController *licenseWindowController;
     BOOL alertVisible;
 }
 

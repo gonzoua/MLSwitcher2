@@ -9,7 +9,6 @@
 #import "MLSwitcher2Controller.h"
 #import "LayoutManager.h"
 #import "Layout.h"
-#import "Sparkle/SUUpdater.h"
 
 int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask, 
     NSCommandKeyMask, NSShiftKeyMask };
@@ -30,8 +29,6 @@ int modifiersMasks[4] = { NSControlKeyMask, NSAlternateKeyMask,
             object:nil];
     [comboesButton setTarget:self];
     [comboesButton setAction:@selector(setCombo:)];
-    [updateButton bind:@"value" toObject:[SUUpdater sharedUpdater] withKeyPath:@"automaticallyChecksForUpdates" options:nil];
-
 }
 
 - (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder 

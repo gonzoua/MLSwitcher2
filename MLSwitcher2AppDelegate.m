@@ -62,7 +62,7 @@
     
     // Init layout manager
     [[LayoutManager sharedInstance] reloadLayouts];
-    licenseWindowController = [[LicenseWindowController alloc] initWithWindowNibName:@"License"];
+
     alertVisible = NO;
 }
 
@@ -84,20 +84,6 @@
                                action:@selector(actionAbout:)
                         keyEquivalent:@""];
     [menuItem setToolTip:@"About MLSwitcher2"];
-    [menuItem setTarget:self];
-    
-    menuItem = [menu addItemWithTitle:@"Check for updates..."
-                               action:@selector(actionCheckForUpdates:)
-                        keyEquivalent:@""];
-    [menuItem setToolTip:@"License information"];
-    [menuItem setTarget:self];
-    
-    [menu addItem:[NSMenuItem separatorItem]];
-   
-    menuItem = [menu addItemWithTitle:@"License..."
-                               action:@selector(actionLicense:)
-                        keyEquivalent:@""];
-    [menuItem setToolTip:@"License information"];
     [menuItem setTarget:self];
     
     menuItem = [menu addItemWithTitle:@"Preferences..."
@@ -191,11 +177,6 @@
     [NSApp activateIgnoringOtherApps:YES];
     [[licenseWindowController window] makeKeyAndOrderFront:self];
 #endif
-}
-
--(void)actionCheckForUpdates:(id)sender
-{
-    [updater checkForUpdates:self];
 }
 
 - (void) showAlert

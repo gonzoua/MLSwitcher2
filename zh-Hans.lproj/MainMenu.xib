@@ -1370,7 +1370,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Shortcuts</string>
+								<string key="NSContents">按键组合</string>
 								<object class="NSFont" key="NSSupport" id="1023097343">
 									<string key="NSName">LucidaGrande-Bold</string>
 									<double key="NSSize">11</double>
@@ -1513,7 +1513,7 @@
 											<object class="NSTextFieldCell" key="NSCell" id="80459928">
 												<int key="NSCellFlags">68157504</int>
 												<int key="NSCellFlags2">272630784</int>
-												<string key="NSContents">Next layout</string>
+												<string key="NSContents">下一布局</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<string key="NSCellIdentifier">_NS:1535</string>
 												<reference key="NSControlView" ref="920027134"/>
@@ -1553,7 +1553,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Cycle combo</string>
+								<string key="NSContents">下一布局</string>
 								<reference key="NSSupport" ref="1023097343"/>
 								<reference key="NSBackgroundColor" ref="157359468"/>
 								<object class="NSColor" key="NSTextColor">
@@ -1588,7 +1588,7 @@
 											<object class="NSButtonCell" key="NSCell" id="479386809">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Start MLSwitcher2 Automatically at Login</string>
+												<string key="NSContents">在登录时自动启动 MLSwitcher</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="932990384"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1618,7 +1618,7 @@
 											<object class="NSButtonCell" key="NSCell" id="541307665">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Show MLSwitcher2 in Menu Bar</string>
+												<string key="NSContents">在菜单栏中显示 MLSwitcher</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="471513136"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1638,11 +1638,12 @@
 											<string key="NSFrame">{{16, 12}, {285, 24}}</string>
 											<reference key="NSSuperview" ref="40406828"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="153974392">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Show MLSwitcher2 Preferences on Launch</string>
+												<string key="NSContents">在启动中显示 MLSwitcher 首选项</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="408289462"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1671,7 +1672,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Settings</string>
+								<string key="NSContents">首选项</string>
 								<reference key="NSSupport" ref="1023097343"/>
 								<reference key="NSBackgroundColor" ref="157359468"/>
 								<object class="NSColor" key="NSTextColor">
@@ -3591,9 +3592,9 @@
 						<reference key="object" ref="212975802"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="932990384"/>
 							<reference ref="471513136"/>
 							<reference ref="408289462"/>
+							<reference ref="932990384"/>
 						</object>
 						<reference key="parent" ref="439893737"/>
 					</object>

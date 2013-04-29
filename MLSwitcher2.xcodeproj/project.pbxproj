@@ -19,16 +19,7 @@
 		9F3E1B0213120B57000E1F17 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1AFD13120B57000E1F17 /* SRValidator.m */; };
 		9F3E1B0713120C48000E1F17 /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */; };
 		9F3E1B6C131225E2000E1F17 /* keyboard_layout.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */; };
-		9F7337E51687905700D49F9E /* CFobError.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337E01687905700D49F9E /* CFobError.m */; };
-		9F7337E61687905700D49F9E /* CFobLicVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337E21687905700D49F9E /* CFobLicVerifier.m */; };
-		9F7337E71687905700D49F9E /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337E31687905700D49F9E /* decoder.c */; };
 		9F7337E9168790A000D49F9E /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7337E8168790A000D49F9E /* libcrypto.dylib */; };
-		9F7337EF1687945700D49F9E /* NSString-Base64Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337EC1687945700D49F9E /* NSString-Base64Extensions.m */; };
-		9F7337F01687945700D49F9E /* NSString+PECrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337EE1687945700D49F9E /* NSString+PECrypt.m */; };
-		9F7337F31693948500D49F9E /* Verifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7337F21693948500D49F9E /* Verifier.m */; };
-		9F7CD4A116701D6800A458B6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9F7CD4A016701D6800A458B6 /* Sparkle.framework */; };
-		9F7CD4A21677EE9300A458B6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7CD4A016701D6800A458B6 /* Sparkle.framework */; };
-		9F7CD4A4167A88E200A458B6 /* License.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7CD4A3167A88E200A458B6 /* License.xib */; };
 		9F8186501310D6EF00DAA1DF /* Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81864D1310D6EF00DAA1DF /* Layout.m */; };
 		9F8186511310D6EF00DAA1DF /* LayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F81864F1310D6EF00DAA1DF /* LayoutManager.m */; };
 		9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F81865E1310D7C900DAA1DF /* Carbon.framework */; };
@@ -41,7 +32,6 @@
 		9FEB8152166C8563007F3599 /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB814F166C8562007F3599 /* NSString+SymlinksAndAliases.m */; };
 		9FEB8153166C8563007F3599 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEB8151166C8562007F3599 /* PFMoveApplication.m */; };
 		9FEB8155166C8595007F3599 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FEB8154166C8594007F3599 /* Security.framework */; };
-		9FEDF74B167EBD7300E1582D /* LicenseWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDF74A167EBD7300E1582D /* LicenseWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,7 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9F7CD4A116701D6800A458B6 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,21 +73,19 @@
 		9F3E1B0513120C48000E1F17 /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
 		9F3E1B0613120C48000E1F17 /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
 		9F3E1B6B131225E2000E1F17 /* keyboard_layout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_layout.png; sourceTree = "<group>"; };
-		9F7337DF1687905700D49F9E /* CFobError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFobError.h; path = CocoaFob/CFobError.h; sourceTree = "<group>"; };
-		9F7337E01687905700D49F9E /* CFobError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFobError.m; path = CocoaFob/CFobError.m; sourceTree = "<group>"; };
-		9F7337E11687905700D49F9E /* CFobLicVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFobLicVerifier.h; path = CocoaFob/CFobLicVerifier.h; sourceTree = "<group>"; };
-		9F7337E21687905700D49F9E /* CFobLicVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFobLicVerifier.m; path = CocoaFob/CFobLicVerifier.m; sourceTree = "<group>"; };
-		9F7337E31687905700D49F9E /* decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = decoder.c; path = CocoaFob/decoder.c; sourceTree = "<group>"; };
-		9F7337E41687905700D49F9E /* decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = decoder.h; path = CocoaFob/decoder.h; sourceTree = "<group>"; };
+		9F4D485A172E16FB003F0E26 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9F4D485B172E16FB003F0E26 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9F4D485C172E1704003F0E26 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9F4D485D172E1704003F0E26 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9F4D485E172E171E003F0E26 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9F4D485F172E171E003F0E26 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9F4D4860172E1724003F0E26 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9F4D4861172E1724003F0E26 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9F4D4862172E172A003F0E26 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9F4D4863172E172A003F0E26 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9F4D4866172E176D003F0E26 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9F4D4867172E176D003F0E26 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 		9F7337E8168790A000D49F9E /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		9F7337EB1687945700D49F9E /* NSString-Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString-Base64Extensions.h"; path = "CocoaFob/NSString-Base64Extensions.h"; sourceTree = "<group>"; };
-		9F7337EC1687945700D49F9E /* NSString-Base64Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString-Base64Extensions.m"; path = "CocoaFob/NSString-Base64Extensions.m"; sourceTree = "<group>"; };
-		9F7337ED1687945700D49F9E /* NSString+PECrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PECrypt.h"; path = "CocoaFob/NSString+PECrypt.h"; sourceTree = "<group>"; };
-		9F7337EE1687945700D49F9E /* NSString+PECrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PECrypt.m"; path = "CocoaFob/NSString+PECrypt.m"; sourceTree = "<group>"; };
-		9F7337F11693948500D49F9E /* Verifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verifier.h; sourceTree = "<group>"; };
-		9F7337F21693948500D49F9E /* Verifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verifier.m; sourceTree = "<group>"; };
-		9F7CD4A016701D6800A458B6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		9F7CD4A3167A88E200A458B6 /* License.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = License.xib; sourceTree = "<group>"; };
 		9F81864C1310D6EF00DAA1DF /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
 		9F81864D1310D6EF00DAA1DF /* Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layout.m; sourceTree = "<group>"; };
 		9F81864E1310D6EF00DAA1DF /* LayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
@@ -118,8 +105,6 @@
 		9FEB8150166C8562007F3599 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = LetsMove/PFMoveApplication.h; sourceTree = "<group>"; };
 		9FEB8151166C8562007F3599 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = LetsMove/PFMoveApplication.m; sourceTree = "<group>"; };
 		9FEB8154166C8594007F3599 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		9FEDF749167EBD7300E1582D /* LicenseWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LicenseWindowController.h; sourceTree = "<group>"; };
-		9FEDF74A167EBD7300E1582D /* LicenseWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LicenseWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F7337E9168790A000D49F9E /* libcrypto.dylib in Frameworks */,
-				9F7CD4A21677EE9300A458B6 /* Sparkle.framework in Frameworks */,
 				9FEB8155166C8595007F3599 /* Security.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				9F81865F1310D7C900DAA1DF /* Carbon.framework in Frameworks */,
@@ -141,7 +125,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9F7337EA1687943F00D49F9E /* CocoaFob */,
 				9FEB814E166C8562007F3599 /* NSString+SymlinksAndAliases.h */,
 				9FEB814F166C8562007F3599 /* NSString+SymlinksAndAliases.m */,
 				9FEB8150166C8562007F3599 /* PFMoveApplication.h */,
@@ -160,10 +143,6 @@
 				256AC3D90F4B6AC300CF3369 /* MLSwitcher2AppDelegate.m */,
 				9FB8D7361314B46200217DC6 /* PrefsWindow.h */,
 				9FB8D7371314B46200217DC6 /* PrefsWindow.m */,
-				9FEDF749167EBD7300E1582D /* LicenseWindowController.h */,
-				9FEDF74A167EBD7300E1582D /* LicenseWindowController.m */,
-				9F7337F11693948500D49F9E /* Verifier.h */,
-				9F7337F21693948500D49F9E /* Verifier.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -195,11 +174,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* MLSwitcher2 */ = {
+		29B97314FDCFA39411CA2CEA /* MLSwitcher */ = {
 			isa = PBXGroup;
 			children = (
 				9F7337E8168790A000D49F9E /* libcrypto.dylib */,
-				9F7CD4A016701D6800A458B6 /* Sparkle.framework */,
 				9FEB8154166C8594007F3599 /* Security.framework */,
 				9F2DFCFA1661EC5800445862 /* ShortcutRecorder.framework */,
 				9F3E1AF313120B3B000E1F17 /* ShortcutRecorder */,
@@ -209,7 +187,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			name = MLSwitcher2;
+			name = MLSwitcher;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
@@ -231,7 +209,6 @@
 				8D1107310486CEB800E47090 /* MLSwitcher2-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
-				9F7CD4A3167A88E200A458B6 /* License.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -262,23 +239,6 @@
 			name = ShortcutRecorder;
 			sourceTree = "<group>";
 		};
-		9F7337EA1687943F00D49F9E /* CocoaFob */ = {
-			isa = PBXGroup;
-			children = (
-				9F7337EB1687945700D49F9E /* NSString-Base64Extensions.h */,
-				9F7337EC1687945700D49F9E /* NSString-Base64Extensions.m */,
-				9F7337ED1687945700D49F9E /* NSString+PECrypt.h */,
-				9F7337EE1687945700D49F9E /* NSString+PECrypt.m */,
-				9F7337DF1687905700D49F9E /* CFobError.h */,
-				9F7337E01687905700D49F9E /* CFobError.m */,
-				9F7337E11687905700D49F9E /* CFobLicVerifier.h */,
-				9F7337E21687905700D49F9E /* CFobLicVerifier.m */,
-				9F7337E31687905700D49F9E /* decoder.c */,
-				9F7337E41687905700D49F9E /* decoder.h */,
-			);
-			name = CocoaFob;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,7 +257,7 @@
 			);
 			name = MLSwitcher2;
 			productInstallPath = "$(HOME)/Applications";
-			productName = MLSwitcher2;
+			productName = MLSwitcher;
 			productReference = 8D1107320486CEB800E47090 /* MLSwitcher2.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -315,8 +275,14 @@
 				Japanese,
 				French,
 				German,
+				ru,
+				ja,
+				de,
+				es,
+				it,
+				"zh-Hans",
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* MLSwitcher2 */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* MLSwitcher */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -336,7 +302,6 @@
 				9F8186721311C7B200DAA1DF /* MLSwitcher2.icns in Resources */,
 				9F3E1B6C131225E2000E1F17 /* keyboard_layout.png in Resources */,
 				9FB8D7301313944600217DC6 /* Credits.rtf in Resources */,
-				9F7CD4A4167A88E200A458B6 /* License.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,13 +327,6 @@
 				9FB8D7381314B46200217DC6 /* PrefsWindow.m in Sources */,
 				9FEB8152166C8563007F3599 /* NSString+SymlinksAndAliases.m in Sources */,
 				9FEB8153166C8563007F3599 /* PFMoveApplication.m in Sources */,
-				9FEDF74B167EBD7300E1582D /* LicenseWindowController.m in Sources */,
-				9F7337E51687905700D49F9E /* CFobError.m in Sources */,
-				9F7337E61687905700D49F9E /* CFobLicVerifier.m in Sources */,
-				9F7337E71687905700D49F9E /* decoder.c in Sources */,
-				9F7337EF1687945700D49F9E /* NSString-Base64Extensions.m in Sources */,
-				9F7337F01687945700D49F9E /* NSString+PECrypt.m in Sources */,
-				9F7337F31693948500D49F9E /* Verifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +337,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				089C165DFE840E0CC02AAC07 /* English */,
+				9F4D485A172E16FB003F0E26 /* ru */,
+				9F4D485C172E1704003F0E26 /* ja */,
+				9F4D485E172E171E003F0E26 /* de */,
+				9F4D4860172E1724003F0E26 /* es */,
+				9F4D4862172E172A003F0E26 /* it */,
+				9F4D4866172E176D003F0E26 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -387,6 +351,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
+				9F4D485B172E16FB003F0E26 /* ru */,
+				9F4D485D172E1704003F0E26 /* ja */,
+				9F4D485F172E171E003F0E26 /* de */,
+				9F4D4861172E1724003F0E26 /* es */,
+				9F4D4863172E172A003F0E26 /* it */,
+				9F4D4867172E176D003F0E26 /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -445,6 +415,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MLSwitcher2_Prefix.pch;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = APP_STORE_BUILD;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -464,6 +435,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MLSwitcher2_Prefix.pch;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = APP_STORE_BUILD;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";

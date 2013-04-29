@@ -1370,7 +1370,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Shortcuts</string>
+								<string key="NSContents">キーの組合せ</string>
 								<object class="NSFont" key="NSSupport" id="1023097343">
 									<string key="NSName">LucidaGrande-Bold</string>
 									<double key="NSSize">11</double>
@@ -1409,7 +1409,7 @@
 										<object class="NSPopUpButton" id="293184438">
 											<reference key="NSNextResponder" ref="351502213"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{102, 11}, {238, 26}}</string>
+											<string key="NSFrame">{{103, 11}, {237, 26}}</string>
 											<reference key="NSSuperview" ref="351502213"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="212975802"/>
@@ -1513,7 +1513,7 @@
 											<object class="NSTextFieldCell" key="NSCell" id="80459928">
 												<int key="NSCellFlags">68157504</int>
 												<int key="NSCellFlags2">272630784</int>
-												<string key="NSContents">Next layout</string>
+												<string key="NSContents">次のレイアウト</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<string key="NSCellIdentifier">_NS:1535</string>
 												<reference key="NSControlView" ref="920027134"/>
@@ -1553,7 +1553,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Cycle combo</string>
+								<string key="NSContents">次のレイアウト</string>
 								<reference key="NSSupport" ref="1023097343"/>
 								<reference key="NSBackgroundColor" ref="157359468"/>
 								<object class="NSColor" key="NSTextColor">
@@ -1580,7 +1580,7 @@
 										<object class="NSButton" id="932990384">
 											<reference key="NSNextResponder" ref="40406828"/>
 											<int key="NSvFlags">288</int>
-											<string key="NSFrame">{{16, 64}, {280, 24}}</string>
+											<string key="NSFrame">{{16, 64}, {323, 24}}</string>
 											<reference key="NSSuperview" ref="40406828"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="471513136"/>
@@ -1588,7 +1588,7 @@
 											<object class="NSButtonCell" key="NSCell" id="479386809">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Start MLSwitcher2 Automatically at Login</string>
+												<string key="NSContents">ログイン時に自動的に MLSwitcher を開始する</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="932990384"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1610,7 +1610,7 @@
 										<object class="NSButton" id="471513136">
 											<reference key="NSNextResponder" ref="40406828"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{16, 38}, {262, 24}}</string>
+											<string key="NSFrame">{{16, 38}, {323, 24}}</string>
 											<reference key="NSSuperview" ref="40406828"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="408289462"/>
@@ -1618,7 +1618,7 @@
 											<object class="NSButtonCell" key="NSCell" id="541307665">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Show MLSwitcher2 in Menu Bar</string>
+												<string key="NSContents">メニューバーに MLSwitcher を表示する</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="471513136"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1635,14 +1635,15 @@
 										<object class="NSButton" id="408289462">
 											<reference key="NSNextResponder" ref="40406828"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{16, 12}, {285, 24}}</string>
+											<string key="NSFrame">{{16, 12}, {323, 24}}</string>
 											<reference key="NSSuperview" ref="40406828"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="153974392">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Show MLSwitcher2 Preferences on Launch</string>
+												<string key="NSContents">起動時に MLSwitcher 設定を表示する</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="408289462"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1671,7 +1672,7 @@
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Settings</string>
+								<string key="NSContents">設定</string>
 								<reference key="NSSupport" ref="1023097343"/>
 								<reference key="NSBackgroundColor" ref="157359468"/>
 								<object class="NSColor" key="NSTextColor">

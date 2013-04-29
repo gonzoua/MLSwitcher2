@@ -8,7 +8,6 @@
 
 #import "LayoutManager.h"
 #import "Layout.h"
-#import "Verifier.h"
 #import "MLSwitcher2AppDelegate.h"
 
 #define INVALID_MASK 0xffffffff
