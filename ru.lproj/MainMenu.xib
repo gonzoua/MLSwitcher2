@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2843</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2843</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1332,7 +1332,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{391, 197}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1351,23 +1351,26 @@
 											<int key="NSvFlags">274</int>
 											<string key="NSFrame">{{18, 14}, {319, 31}}</string>
 											<reference key="NSSuperview" ref="511313955"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="769398423"/>
 											<string key="NSClassName">NSView</string>
 										</object>
 									</object>
 									<string key="NSFrame">{{1, 1}, {355, 55}}</string>
 									<reference key="NSSuperview" ref="834883149"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="897951051"/>
 								</object>
 							</object>
 							<string key="NSFrame">{{17, 197}, {357, 71}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="511313955"/>
 							<string key="NSOffsets">{0, 0}</string>
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Shortcuts</string>
+								<string key="NSContents">Комбинации клавиш</string>
 								<object class="NSFont" key="NSSupport" id="1023097343">
 									<string key="NSName">LucidaGrande-Bold</string>
 									<double key="NSSize">11</double>
@@ -1406,8 +1409,9 @@
 										<object class="NSPopUpButton" id="293184438">
 											<reference key="NSNextResponder" ref="351502213"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{102, 11}, {238, 26}}</string>
+											<string key="NSFrame">{{169, 11}, {171, 26}}</string>
 											<reference key="NSSuperview" ref="351502213"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="212975802"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<bool key="NSEnabled">YES</bool>
@@ -1500,15 +1504,16 @@
 										<object class="NSTextField" id="920027134">
 											<reference key="NSNextResponder" ref="351502213"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{15, 14}, {85, 21}}</string>
+											<string key="NSFrame">{{15, 14}, {151, 21}}</string>
 											<reference key="NSSuperview" ref="351502213"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="293184438"/>
 											<string key="NSReuseIdentifierKey">_NS:1535</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="80459928">
 												<int key="NSCellFlags">68157504</int>
 												<int key="NSCellFlags2">272630784</int>
-												<string key="NSContents">Next layout</string>
+												<string key="NSContents">Следующая раскладка</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<string key="NSCellIdentifier">_NS:1535</string>
 												<reference key="NSControlView" ref="920027134"/>
@@ -1536,17 +1541,19 @@
 									</object>
 									<string key="NSFrame">{{1, 1}, {355, 45}}</string>
 									<reference key="NSSuperview" ref="769398423"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="920027134"/>
 								</object>
 							</object>
 							<string key="NSFrame">{{17, 132}, {357, 61}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="351502213"/>
 							<string key="NSOffsets">{0, 0}</string>
 							<object class="NSTextFieldCell" key="NSTitleCell">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Cycle combo</string>
+								<string key="NSContents">Переключения по кругу</string>
 								<reference key="NSSupport" ref="1023097343"/>
 								<reference key="NSBackgroundColor" ref="157359468"/>
 								<object class="NSColor" key="NSTextColor">
@@ -1573,14 +1580,15 @@
 										<object class="NSButton" id="932990384">
 											<reference key="NSNextResponder" ref="40406828"/>
 											<int key="NSvFlags">288</int>
-											<string key="NSFrame">{{16, 64}, {280, 24}}</string>
+											<string key="NSFrame">{{16, 64}, {323, 24}}</string>
 											<reference key="NSSuperview" ref="40406828"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="471513136"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="479386809">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Start MLSwitcher2 Automatically at Login</string>
+												<string key="NSContents">Стартовать MLSwitcher после входа в систему</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="932990384"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1602,14 +1610,15 @@
 										<object class="NSButton" id="471513136">
 											<reference key="NSNextResponder" ref="40406828"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{16, 38}, {262, 24}}</string>
+											<string key="NSFrame">{{16, 38}, {323, 24}}</string>
 											<reference key="NSSuperview" ref="40406828"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="408289462"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="541307665">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Show MLSwitcher2 in Menu Bar</string>
+												<string key="NSContents">Показывать иконку MLSwitcher в меню</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="471513136"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1626,13 +1635,15 @@
 										<object class="NSButton" id="408289462">
 											<reference key="NSNextResponder" ref="40406828"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{16, 12}, {285, 24}}</string>
+											<string key="NSFrame">{{16, 12}, {323, 24}}</string>
 											<reference key="NSSuperview" ref="40406828"/>
+											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="153974392">
 												<int key="NSCellFlags">-2080374784</int>
 												<int key="NSCellFlags2">0</int>
-												<string key="NSContents">Show MLSwitcher2 Preferences on Launch</string>
+												<string key="NSContents">Открывать окно с настройками при запуске</string>
 												<reference key="NSSupport" ref="91631420"/>
 												<reference key="NSControlView" ref="408289462"/>
 												<int key="NSButtonFlags">1211912448</int>
@@ -1649,11 +1660,13 @@
 									</object>
 									<string key="NSFrame">{{1, 1}, {355, 96}}</string>
 									<reference key="NSSuperview" ref="212975802"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="932990384"/>
 								</object>
 							</object>
 							<string key="NSFrame">{{17, 16}, {357, 112}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="40406828"/>
 							<string key="NSOffsets">{0, 0}</string>
 							<object class="NSTextFieldCell" key="NSTitleCell">
@@ -1675,6 +1688,8 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{391, 288}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="834883149"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>

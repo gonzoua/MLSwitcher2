@@ -77,16 +77,19 @@
     NSMenu *menu = [[NSMenu allocWithZone:menuZone] init];
     NSMenuItem *menuItem;
     
+#define kAbout NSLocalizedString(@"About", nil)
+#define kPreferences NSLocalizedString(@"Preferences...", nil)
+#define kQuit NSLocalizedString(@"Quit", nil)
 
     
     // Add About Action
-    menuItem = [menu addItemWithTitle:@"About"
+    menuItem = [menu addItemWithTitle:kAbout
                                action:@selector(actionAbout:)
                         keyEquivalent:@""];
     [menuItem setToolTip:@"About MLSwitcher2"];
     [menuItem setTarget:self];
     
-    menuItem = [menu addItemWithTitle:@"Preferences..."
+    menuItem = [menu addItemWithTitle:kPreferences
                                action:@selector(actionPreferences:)
                         keyEquivalent:@""];
     [menuItem setToolTip:@"Edit preferences"];
@@ -94,7 +97,7 @@
     
     [menu addItem:[NSMenuItem separatorItem]];
     
-    menuItem = [menu addItemWithTitle:@"Quit"
+    menuItem = [menu addItemWithTitle:kQuit
                                action:@selector(actionQuit:)
                         keyEquivalent:@""];
     [menuItem setToolTip:@"Click to Quit this App"];
