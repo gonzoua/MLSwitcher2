@@ -23,10 +23,6 @@ hdiutil create -size 15000k -volname "$VOLNAME" -attach -fs HFS+ "$TARGET_BUILD_
 
 cp -R "$TARGET_BUILD_DIR/$APPNAME.app" "/Volumes/$VOLNAME/"
 
-echo --sign frameworks --
-
-codesign --preserve-metadata=identifier,entitlements,resource-rules,requirements --force --verify --verbose --sign "Developer ID Application: Oleksandr Tymoshenko" "/Volumes/$VOLNAME/$APPNAME.app/Contents/Frameworks/Sparkle.framework/Versions/A"
-
 echo --sign app--
 codesign --preserve-metadata=identifier,entitlements,resource-rules,requirements --force --verify --verbose --sign "Developer ID Application: Oleksandr Tymoshenko" "/Volumes/$VOLNAME/$APPNAME.app"
 ls -la "/Volumes/$VOLNAME/"
