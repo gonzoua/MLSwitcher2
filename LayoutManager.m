@@ -11,7 +11,7 @@
 #import "MLSwitcher2AppDelegate.h"
 
 #define INVALID_MASK 0xffffffff
-#define MAX_MASK 5
+#define MAX_MASK 6
 #define MAX_SWITCHES 20
 
 int NumberOfSetBits(int i)
@@ -26,7 +26,8 @@ NSUInteger cycleComboMasks[MAX_MASK] = {
     NSShiftKeyMask | NSControlKeyMask,
     NSShiftKeyMask | NSAlternateKeyMask,
     NSShiftKeyMask | NSCommandKeyMask,
-    NSAlphaShiftKeyMask
+    NSAlphaShiftKeyMask,
+    NSShiftKeyMask | NSFunctionKeyMask
 };
 
 CGEventRef eventTapCallback(
@@ -330,6 +331,9 @@ static LayoutManager *sharedInstance = nil;
     
     if (f & kCGEventFlagMaskCommand)
         modifiers |= NSCommandKeyMask;
+
+    if (f & kCGEventFlagMaskSecondaryFn)
+        modifiers |= NSFunctionKeyMask;
     
     if (f & kCGEventFlagMaskControl)
         modifiers |= NSControlKeyMask;
