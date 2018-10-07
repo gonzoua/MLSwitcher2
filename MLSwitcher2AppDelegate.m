@@ -23,6 +23,12 @@
 #ifndef APP_STORE_BUILD
     PFMoveToApplicationsFolderIfNecessary();
 #endif
+
+    if (AXIsProcessTrustedWithOptions != NULL) {
+        NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
+        BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((CFDictionaryRef)options);
+        NSLog(@"Accessibility enabled: %d\n", accessibilityEnabled);
+    }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
