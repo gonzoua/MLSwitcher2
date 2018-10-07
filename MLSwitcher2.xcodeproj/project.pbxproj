@@ -261,7 +261,7 @@
 			dependencies = (
 			);
 			name = MLSwitcher2;
-			productInstallPath = "$(HOME)/Applications";
+			productInstallPath = "/Applications";
 			productName = MLSwitcher;
 			productReference = 8D1107320486CEB800E47090 /* MLSwitcher2.app */;
 			productType = "com.apple.product-type.application";
@@ -450,7 +450,7 @@
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = APP_STORE_BUILD;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "/Applications";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluezbox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MLSwitcher2;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -479,7 +479,7 @@
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = APP_STORE_BUILD;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "/Applications";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluezbox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MLSwitcher2;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -506,7 +506,7 @@
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = APP_STORE_BUILD;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "MLSwitcher2-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = "/Applications";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bluezbox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = MLSwitcher2;
 				PROVISIONING_PROFILE_SPECIFIER = "";
