@@ -11,7 +11,7 @@
 #import "MLSwitcher2AppDelegate.h"
 
 #define INVALID_MASK 0xffffffff
-#define MAX_MASK 6
+#define MAX_MASK 10
 #define MAX_SWITCHES 20
 
 int NumberOfSetBits(int i)
@@ -27,7 +27,11 @@ NSUInteger cycleComboMasks[MAX_MASK] = {
     NSShiftKeyMask | NSAlternateKeyMask,
     NSShiftKeyMask | NSCommandKeyMask,
     NSAlphaShiftKeyMask,
-    NSShiftKeyMask | NSFunctionKeyMask
+    NSShiftKeyMask | NSFunctionKeyMask,
+    NSControlKeyMask,
+    NSAlternateKeyMask,
+    NSCommandKeyMask,
+    NSShiftKeyMask
 };
 
 CGEventRef eventTapCallback(
@@ -48,6 +52,7 @@ CGEventRef eventTapCallback(
         case kCGEventRightMouseDown:
         case kCGEventLeftMouseUp:
         case kCGEventLeftMouseDown:
+            [manager resetCombo];
             break;
 	}
 	return (event);
@@ -347,6 +352,11 @@ static LayoutManager *sharedInstance = nil;
     if (_armed &&
         (NumberOfSetBits(modifiers) < NumberOfSetBits(_cycleComboMask))) {
         triggerSwitch = YES;
+    }
+    
+    if (_armed &&
+        (NumberOfSetBits(modifiers) > NumberOfSetBits(_cycleComboMask))) {
+        _armed = false;
     }
     
     // check whether we got here by pressing keys
